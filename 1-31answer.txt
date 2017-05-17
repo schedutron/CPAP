@@ -1,4 +1,16 @@
 We can use the following 'filter':
 
-removedHash = re.sub(r'#\S+', '', tweet)
-scrubbedTweet = re.sub(r'^RT( @[^\s@]+)+|^\.+', '', removedHash).lstrip()
+def filter(tweet, meta=False):
+	findHash = re.findall(r'#\S+', tweet)
+	elements = {}
+	if findHash and meta:
+		elements['hashtags'] = hashtag.lstrip('@') for hashtag in findHash
+	findRT = re.search(r'^RT(?: @[^\s@]+)+', removedHash)
+	if findRT and meta:
+		users = findRT.group().split()
+		users.remove('RT')
+		elements['RT'] = tuple(users)
+	scrubbedTweet = re.sub(r'(^RT( @[^\s@]+)+|^\.+)|#\S+', '', tweet).lstrip()
+	if meta:
+		return (scrubbedTweet, elements)
+	return scrubbedTweet

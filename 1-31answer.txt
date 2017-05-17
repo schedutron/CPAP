@@ -1,0 +1,4 @@
+We can use the following 'filter':
+
+removedHash = re.sub(r'#\S+', '', tweet)
+scrubbedTweet = re.sub(r'^RT( @[^\s@]+)+|^\.+', '', removedHash).lstrip()

@@ -1,10 +1,10 @@
-www.google.com Very comprehensive search engine
-www.facebook.com
-www.instagram.com Browse people's photos
-www.dropbox.com
-www.twitter.com Dispatch your status!
-www.coursera.org Enhance your skills
-www.khanacademy.org Learn cool things
-www.amazon.com
-www.python.org All things Python!
-www.youtube.com Watch videos from around the planet (and beyond!)
+http://www.google.com Very comprehensive search engine
+http://www.facebook.com
+http://www.instagram.com Browse people's photos
+http://www.dropbox.com
+http://www.twitter.com Dispatch your status!
+http://www.coursera.org Enhance your skills
+http://www.khanacademy.org Learn cool things
+http://www.amazon.com
+http://www.python.org All things Python!
+http://www.youtube.com Watch videos from around the planet (and beyond!)

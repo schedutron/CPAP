@@ -1,10 +1,10 @@
 www.google.com Very comprehensive search engine
-www.facebook.com Connect with friends and family
+www.facebook.com
 www.instagram.com Browse people's photos
-www.dropbox.com Put your tuff on cloud
+www.dropbox.com
 www.twitter.com Dispatch your status!
 www.coursera.org Enhance your skills
 www.khanacademy.org Learn cool things
-www.amazon.com Shop remotely!
+www.amazon.com
 www.python.org All things Python!
 www.youtube.com Watch videos from around the planet (and beyond!)

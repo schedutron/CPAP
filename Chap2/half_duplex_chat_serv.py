@@ -42,6 +42,7 @@ class ChatServer():
                 self.chatCliSock.send(msg)
         self.chatServSock.close() #not really used
 
-chatServer = ChatServer('', 3300, 1024)
-chatServer.run()
+if __name__ == '__main__':
+    chatServer = ChatServer('', 3300, 1024)
+    chatServer.run()
     

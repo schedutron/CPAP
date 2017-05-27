@@ -16,8 +16,9 @@ class ChatClient():
         self.BUFSIZ = bufsiz
         self.hostAddr = (self.HOST, self.PORT)
 
-    def run(self):
         self.chatCliSock = socket(AF_INET, SOCK_STREAM)
+
+    def run(self):
         self.chatCliSock.connect(self.hostAddr)
 
         while True:
@@ -40,6 +41,7 @@ class ChatClient():
             
         self.chatCliSock.close()
 
-chatClient = ChatClient(1024)
-chatClient.run()
+if __name__ == '__main__':
+    chatClient = ChatClient(1024)
+    chatClient.run()
 

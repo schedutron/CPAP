@@ -3,7 +3,7 @@
 from socket import *
 
 HOST = ''
-PORT = 6002
+PORT = 6000
 ADDR = (HOST, PORT)
 
 server = socket(AF_INET, SOCK_STREAM)

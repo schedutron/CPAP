@@ -43,6 +43,6 @@ class ChatServer():
         self.chatServSock.close() #not really used
 
 if __name__ == '__main__':
-    chatServer = ChatServer('', 3300, 1024)
+    chatServer = ChatServer('', 33000, 1024)
     chatServer.run()
     

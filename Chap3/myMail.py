@@ -34,4 +34,5 @@ recvBody = [text.decode('unicode_escape') for text in msg] #to convert the recie
 recvBody = recvBody[recvBody.index('')+1:]
 #print('recvBody:\n%s\n' % recvBody)
 #print('origBody:\n%s\n' % origBody)
+recvSvr.quit() #important! commits pending changes!
 assert recvBody == origBody #assert identical

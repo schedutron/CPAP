@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-#this should've be appropriately named as getLatestNNTP.py
 import nntplib, socket
 
 HOST = 'nntp.aioe.org'
@@ -14,7 +13,7 @@ def main():
         #, user=USER, password=PASS) --if authentication required
     except socket.gaierror as e:
         print("ERROR: cannot reach host '%s'" % HOST)
-        print(' ("%s")' % eval(str(e))[1])
+        print(' ("%s")' % eval(str(e))[1]) #what's the need of eval? Why not just str(e)? This itself creates another error
         return
     except nntplib.NNTPPermanentError as e:
         print("ERROR: access denied on '%s'" % HOST)
@@ -31,7 +30,7 @@ def main():
         print(" Uncomment/edit login line above")
         n.quit()
         return
-    except nntplib.NNTPTemporaryError as ee:
+    except nntplib.NNTPTemporaryError as ee: #this is exactly the above exception! But book has it! Maybe the order matters here
         print("ERROR: group '%s' unavailable" % GRNM)
         print(' ("%s")' % str(ee)) #book used e instead of ee
         n.quit()
@@ -39,9 +38,9 @@ def main():
     print("*** Found newsgroup '%s'" % GRNM)
 
     rng = "%s-%s" % (lst, lst)
-    rsp, frm = n.xhdr('from', lst)
-    rsp, sub = n.xhdr('subject', lst)
-    rsp, dat = n.xhdr('date', lst)
+    rsp, frm = n.xhdr('from', rng)
+    rsp, sub = n.xhdr('subject', rng)
+    rsp, dat = n.xhdr('date', rng)
     print('''*** Found last article (#%s):
 
     From: %s
@@ -64,8 +63,8 @@ def displayFirst20(data):
     lastBlank = True
     for line in lines:
         line = line.decode('unicode_escape')
-        '''decode because lines ar in binary format, unicode_escape used to avoid potential
-        'can't decode' error(s)'''
+        '''decode because lines are in binary format, unicode_escape used to avoid potential
+        "can't decode" error(s)'''
         if line:
             lower = line.lower()
             if (lower.startswith('>') and not lower.startswith('>>>')) or\

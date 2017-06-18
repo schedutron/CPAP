@@ -11,10 +11,9 @@ while dirname:
     if dirname:
         try:
             f.cwd(dirname)
+            f.dir()
         except error_perm:
             print("Can't cd to %s. Try again." % dirname)
-        else:
-            f.dir()
 
 data = []
 f.dir(data.append)

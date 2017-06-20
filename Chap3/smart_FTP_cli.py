@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+#this is just a download client, upload functionality absent
 from ftplib import FTP, error_perm
 import re, pickle, sys #maybe sqlite3 is a better option here instead of pickle
 from time import ctime

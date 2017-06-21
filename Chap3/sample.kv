@@ -1,0 +1,26 @@
+<SampGridLayout>:
+    rows: 2
+
+    BoxLayout:
+        size_hint_y: None
+        height: 30
+        spacing: 10
+
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Button:
+            text: "Open"
+            size_hint_x: None
+            width: 200
+        Button:
+            text: "Save"
+            size_hint_x: None
+            width: 200
+        Button:
+            text: "Exit"
+            size_hint_x: None
+            width: 200

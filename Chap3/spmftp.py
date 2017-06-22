@@ -2,7 +2,7 @@
 
 #this is just a download client, upload functionality absent
 from ftplib import FTP, error_perm
-import re, sys #maybe sqlite3 is a better option here instead of pickle
+import re, sys
 
 class Callback():
     def __init__(self, f, size):

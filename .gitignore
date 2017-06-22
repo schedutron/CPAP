@@ -1,2 +1,6 @@
 secret.pyc
 screenShot.png
+.DS_Store
+studentdb.pyc
+__pycache__/
+.DS_Store

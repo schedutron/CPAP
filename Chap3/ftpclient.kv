@@ -1,0 +1,59 @@
+#: import main smart_FTP_clnt_GUI
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+
+Client:
+
+<Client>:
+    orientation: "vertical"
+    host_name_text_input: host_name
+    dir_name_text_input: dir_name
+    dir_contents: dir_contents_view
+    status: status_bar
+
+    padding: 10
+    spacing: 10
+
+    Label:
+        id: status_bar
+        size_hint_y: None
+        height: "20dp"
+        text: ""
+
+    BoxLayout:
+        spacing: 15
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            text: "Hostname"
+        TextInput:
+            id: host_name
+
+        Label:
+            text: "Directory"
+        TextInput:
+            id: dir_name
+
+        Button:
+            text: "Get"
+            on_press: root.get()
+
+    BoxLayout:
+        size_hint_y: None
+        height: "50dp"
+        spacing: 15
+
+        Button:
+            size_hint_x: 0.3
+            text: "Back"
+            on_press: root.behind()
+        Button:
+            text: "Download"
+            on_press: root.download()
+
+    ListView:
+        id: dir_contents_view
+
+        adapter:
+            ListAdapter(data=[], cls=main.DirItemButton, selection_mode="multiple")

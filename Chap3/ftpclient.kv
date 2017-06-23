@@ -10,9 +10,33 @@ Client:
     dir_name_text_input: dir_name
     dir_contents: dir_contents_view
     status: status_bar
+    the_buttons: the_buttons
+    history: history
+    bookmarks: bookmarks
+    downloads: downloads
 
     padding: 10
     spacing: 10
+
+    BoxLayout:
+        id: data_bar
+        orientation: "horizontal"
+        size_hint_y: .10
+
+        Spinner:
+            id: history
+            text: "History"
+            values: main.history_dict["history"]
+
+        Spinner:
+            id: bookmarks
+            text: "Bookmarks"
+            values: main.history_dict["bookmarks"]
+
+        Spinner:
+            id: downloads
+            text: "Downloads"
+            values: main.history_dict["downloads"]
 
     Label:
         id: status_bar
@@ -42,6 +66,7 @@ Client:
     BoxLayout:
         size_hint_y: None
         height: "50dp"
+        id: the_buttons
         spacing: 15
 
         Button:

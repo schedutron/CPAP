@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import nntplib, socket
+import nntplib, socket, re
 
 HOST = 'news.aioe.org'
 GRNM = 'comp.lang.python'
@@ -69,12 +69,16 @@ def displayFirst20(data):
     print("*** First (<=20) meaningful lines:\n")
     #print("\n\n-*-*-*-*- check\n\n%s\n\n" % str(data))
     count = 0
-    lines = (line.rstrip() for line in data)
+    lines = [line.rstrip() for line in data]
     lastBlank = True
-    for line in lines:
-        line = line.decode('unicode_escape')
-        '''decode because lines are in binary format, unicode_escape used to avoid potential
-        "can't decode" error(s)'''
+    is_indented_code = False #to check whether a whitespace is unnecessary or part of an indented code
+    for i in range(len(lines)):
+        '''decode because lines are in binary format'''
+        try:
+            line = lines[i].decode('unicode_escape')
+        except UnicodeDecodeError: #hope this prevents errors
+            line = lines[i].decode()
+
         if line:
             lower = line.lower()
             if (lower.startswith('>') and not lower.startswith('>>>')) or\
@@ -84,6 +88,18 @@ def displayFirst20(data):
                 lower.endswith('wrote:'):
                     continue
             if not lastBlank or (lastBlank and line): #could be writeen as just lastBlank or line
+                if re.match(r'\s', line): #regex to check if the line starts with a whitespace
+                    if not is_indented_code:
+                        try:
+                            if lines[i-1].endswith(':'): #indentation happens only after a colon (:)
+                                is_indented_code = True
+                        except:
+                            pass
+                    if not is_indented_code:
+                        line = line.lstrip() #removes the initial unnecessary whitespace
+                elif is_indented_code: #if no more indentation occurs, and is_code is still True, it means indented code has ended
+                    is_indented_code = False
+
                 print(' %s' % line)
                 if line:
                     count += 1

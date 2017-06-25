@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import nntplib, socket
+import nntplib, socket, re
 
 HOST = 'nntp.aioe.org'
 GRNM = 'comp.lang.python'

@@ -2,6 +2,22 @@
 
 import nntplib, socket, getpass, pydoc, sys
 
+def find(query, string):
+    is_there = False
+    for chunk in query: #OR
+        chunk_qualified = False
+        for word in chunk: #AND
+            if word not in string:
+                break
+        else:
+            chunk_qualified = True
+
+        if chunk_qualified:
+            is_there = True
+            break
+
+    return is_there
+
 print("Welcome to your NNTP client!")
 host = input("Enter hostname: ")
 username = input("Enter username (skip this to do an anonymous login): ")
@@ -39,27 +55,69 @@ except nntplib.NNTPTemporaryError:
     sys.exit()
 
 print(n.description(group_name))
-print("There are about %s articles available." % ct)
+print("There are about %s articles available.\n" % ct)
+print("""You can search through both the article bodies and subjects.
+Use AND and OR accordingly:
+subject
+body
+subject OR body
+subject AND body""")
+search_type = input("Type your choice: ")
+print("""\nNow enter keywords to get relevant articles, and you can use
+AND and OR here as well (and you can skip this to get all the articles).""")
+search = input("Keywords: ")
 
-search = input("Enter space-separated keywords to get relevant articles (you can skip this to get all the articles): ").split()
+both = False #for search type
+either = False
+chunks = search_type.split('OR')
+if len(chunks) != 1:
+    either = True
+else:
+    chunks = search_type.split('AND')
+    if len(chunks) != 1:
+        both = True
+
+if not (either or both):
+    if search_type.lower() == 'subject':
+        in_subject = True
+    else:
+        in_body = True
 
 if search:
+    query = search.split(' OR ')
+    query = [phrase.split(' AND ') for phrase in query]
     count = fst
     subjects = []
     while count <= lst:
         rsp, subject = n.xhdr('subject', count)
-
-        #get the relvant subjects
-        for word in search:
-            if word in subject[1]:
-                subjects.append(subject)
-                break
+        #print("Sub:-----", subject)
+        #get the relvant articles
+        if not (either or both):
+            if in_subject:
+                if find(query, subject[0][1]):
+                    subjects.append(subject[0])
+            else:
+                rsp, body = n.body(count)
+                body = body[2]
+                if find(query, body):
+                    subjects.append(subject[0])
+        elif either:
+            if find(query, subject[0][1]):
+                subjects.append(subject[0])
+            else:
+                rsp, body = n.body(count)
+                body = body[2]
+                if find(query, body):
+                    subjects.append(subject[0])
+        #both
         else:
-            body = n.body(count)
-            for word in search:
-                if word in body[0][1]:
-                    subjects.append(subject)
-                    break
+            flag = False
+            if find(query, subject[0][1]):
+                rsp, body = n.body(count)
+                body = body[2]
+                if find(query, body):
+                    subjects.append(subject[0])
+
         count += 1
 
         '''
@@ -70,10 +128,11 @@ if search:
 else:
     rsp, subjects = n.xhdr('subject', str(fst)+'-'+str(lst))
 
-print("There are %s relevant subjects available:" % len(subjects))
+print("\nThere are %s relevant subjects available:\n" % len(subjects))
 
 for mid, sub in subjects: #message id, subjects
     print(mid, sub)
+print() #looks better
 
 choice = 'sub' #just to initiate
 while choice:

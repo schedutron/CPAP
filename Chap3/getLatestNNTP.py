@@ -81,9 +81,13 @@ def displayFirst20(data):
                 if re.match(r'\s', line): #regex to check if the line starts with a whitespace
                     if not is_indented_code:
                         try:
-                            if lines[i-1].endswith(':'): #indentation happens only after a colon (:)
+                            try:
+                                previous = lines[i-1].decode('unicode_escape')
+                            except (UnicodeDecodeError, OverflowError):
+                                previous = lines[i-1].decode()
+                            if previous.startswith(':'): #indentation happens only after a colon (:)
                                 is_indented_code = True
-                        except:
+                        except IndexError:
                             pass
                     if not is_indented_code:
                         line = line.lstrip() #removes the initial unnecessary whitespace

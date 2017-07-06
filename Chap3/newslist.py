@@ -39,7 +39,7 @@ import sys, nntplib, marshal, time, os
 
 # Top directory.
 # Filenames which don't start with / are taken as being relative to this.
-topdir = os.path.expanduser('~/newspage')
+topdir = os.path.expanduser('~/Dropbox/Kode/CPAP/Chap3/newspage')
 
 # The name of your NNTP host
 # eg.
@@ -118,8 +118,8 @@ page = os.path.join(topdir,pagedir)
 # Addtotree creates/augments a tree from a list of group names
 def addtotree(tree, groups):
     print 'Updating tree...'
-    for group in groups:
-        parts = groups.split('.')
+    for grp in groups:
+        parts = grp.split('.')
         makeleaf(tree, parts)
 
 # Makeleaf makes a leaf and the branch leading to it if necessary
@@ -226,7 +226,7 @@ def readdesc(descfile):
                 except IndexError:
                     pass
     except IOError:
-        print 'Description file ' + descfile + ' is perhaps absent.'
+        print 'Description file at ' + descfile + ' is perhaps absent.'
         return
 
 # Check that ouput directory exists, ------------------------------
@@ -283,6 +283,7 @@ def getallgroups(server):
     treedate = '010101'
     info = server.list()[1]
     groups = []
+    empty_groups = []
     print 'Processing...'
     if skipempty:
         print '\nIgnoring following empty groups:'
@@ -290,8 +291,12 @@ def getallgroups(server):
         grpname = i[0].split()[0]
         if skipempty and int(i[1]) < int(i[2]):
             print grpname + ' ',
+            empty_groups.append(grpname)
         else:
             groups.append(grpname)
+    # To keep a persistent list of empty groups for check later.
+    with open('empty_groups.pkl', 'wb') as e_g:
+        marshal.dump(empty_groups, e_g)
     print '\n'
     if skipempty:
         print '(End of empty groups)'
@@ -338,10 +343,30 @@ def main():
     # Otherwise just read the local file and then add
     # groups created since local file last modified.
     else:
-
         (tree, treedate) = readlocallist(treefile)
         if connected:
             groups = getnewgroups(s, treedate)
+
+            with open('empty_groups.pkl', 'rb') as e_g:
+                empty_groups = marshal.load(e_g)
+            print "Checking empty groups for posts..."
+            all_grps = s.list()[1]
+            # Dictionary created from list for faster checks for empty_groups.
+            group_dict = {item[0]:item[1:3] for item in all_grps}
+            # This loop checks whether the empty groups are still empty.
+            # If they aren't, they're added to groups.
+            """
+            for grpname in empty_groups:
+                rsp, ct, fst, lst, grp = s.group(grpname)
+                if int(lst) > int(fst):
+                    groups.append(grpname)
+            """
+            for grpname in empty_groups:
+                lst, fst =  group_dict[grpname]
+                if int(lst) > int(fst):
+                    print grpname, "is no longer empty!"
+                    groups.append(grpname)
+
 
     if connected:
         addtotree(tree, groups)

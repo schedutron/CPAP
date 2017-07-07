@@ -190,6 +190,7 @@ def printtree(f, tree, indent, p):
     for i in kl:
         if i == '.':
             # Output a newsgroup
+            # Some aioe (meta?) newsgroups aren't available on Google groups. So that may be bad.
             f.write('<li><a href="https://groups.google.com/d/forum/%s">%s</a> ' % (p[1:], p[1:]))
             if p[1:] in desc:
                 f.write('     <i>%s</i>\n' % desc[p[1:]])

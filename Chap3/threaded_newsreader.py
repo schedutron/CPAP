@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# Still has unicode problems in displaying articles. (Not an error by the way) :(
 #this can be made more dynamic
 import nntplib, socket, getpass, pydoc, sys, re, pickle, subprocess
 from smtplib import SMTP

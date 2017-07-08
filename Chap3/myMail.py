@@ -1,25 +1,32 @@
 #!/usr/bin/env python3
+# Requires a secret.pyc file containing email credentials for running
 from imaplib import IMAP4_SSL
 from smtplib import SMTP_SSL, SMTPAuthenticationError
 from poplib import POP3_SSL, error_proto
-from secret import *
+from secret import * # Gets credentials for gmail account.
 from socket import gaierror
+import subprocess
 from time import sleep
+
 SMTPSVR = 'smtp.gmail.com'
 IMAPSVR = 'imap.gmail.com'
 POPSVR = 'pop.gmail.com'
 
 who = MAILBOX + '@gmail.com'
-body = """From: %(who)s
-To: %(who)s
-Subject: test msg
+with open('email', 'w') as msg:
+    msg.write('From: YOUR_NAME_HERE <%s>\n' % who)
+    msg.write('To: RECIPIENTS_HERE\n')
+    msg.write('Subject: YOUR_SUBJECT_HERE\n\n')
+subprocess.call(['nano', 'email'])
 
-Hello, World!""" % {'who': who}
+with open('email', 'rb') as msg:
+    body = msg.read().decode('unicode_escape') # INCLUDES HEADERS
 
 body_list = body.split('\n')
 breaker = body_list.index('')
 origHeaders = body_list[:breaker] # List
-origBody = ''.join(body_list[breaker+1:])
+recipients = origHeaders[1].split(', ')
+origBody = '\n'.join(body_list[breaker+1:])
 try:
     sendSvr = SMTP_SSL(SMTPSVR, 465)
 except gaierror:
@@ -32,7 +39,7 @@ try:
 except SMTPAuthenticationError:
     print("Invalid SMTP credentials.")
     exit()
-errs = sendSvr.sendmail(who, [who], body)
+errs = sendSvr.sendmail(who, recipients, body)
 sendSvr.quit()
 assert len(errs) == 0, errs
 choice = input("Mail sent. Which protocol do you want to use for receiving it? (POP / IMAP)? ")
@@ -58,7 +65,7 @@ if choice == "IMAP":
     except imaplib.error as e:
         print(e)
         exit()
-    recvBody = data[0][1].decode('unicode_escape').split('\r\n')[:-1] # [:-1] removes the empty string at last.
+    recvBody = data[0][1].decode('unicode_escape').split('\r\n')
 
 else:
     # POP stuff below.
@@ -95,9 +102,9 @@ for i in range(len(recvHeaders)):
         break
 recvHeaders = recvHeaders[i:i+3]
 recvBody = '\n'.join(recvBody[breaker+1:])
-#print('recvBody:\n%s\n' % recvBody)
-#print('origBody:\n%s\n' % origBody)
-#print('recvHeaders:\n%s\n' % recvHeaders)
-#print('origHeaders:\n%s\n' % origHeaders)
+print('recvBody:\n%s\n' % recvBody)
+print('origBody:\n%s\n' % origBody)
+print('recvHeaders:\n%s\n' % recvHeaders)
+print('origHeaders:\n%s\n' % origHeaders)
 assert recvHeaders == origHeaders
 assert recvBody == origBody #assert identical

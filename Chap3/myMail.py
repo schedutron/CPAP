@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from smtplib import SMTP
+from smtplib import SMTP_SSL
 from poplib import POP3_SSL
 from secret import *
 from time import sleep
@@ -20,18 +20,19 @@ breaker = body_list.index('')
 origHeaders = body_list[:breaker] # List
 origBody = ''.join(body_list[breaker+1:])
 print(origBody)
-sendSvr = SMTP(SMTPSVR)
-sendSvr.starttls()
+sendSvr = SMTP_SSL(SMTPSVR, 465)
+sendSvr.ehlo()
+#sendSvr.starttls()
 sendSvr.login(who, PASSWD)
 errs = sendSvr.sendmail(who, [who], body)
 sendSvr.quit()
 assert len(errs) == 0, errs
 sleep(10) #wait for mail to be delivered
 
-recvSvr = POP3_SSL(POPSVR)
+recvSvr = POP3_SSL(POPSVR, 995)
 recvSvr.user(who)
 recvSvr.pass_(PASSWD)
-rsp, msg, siz = recvSvr.retr(recvSvr.stat()[-1])
+rsp, msg, siz = recvSvr.retr(recvSvr.stat()[0])
 #strip headers and compare to orig msg
 #print(msg)
 #print("Full message: ")
@@ -48,11 +49,11 @@ for i in range(len(recvHeaders)):
     if recvHeaders[i].startswith('From:'):
         break
 recvHeaders = recvHeaders[i:i+3]
-recvBody = recvBody[breaker+1:]
-print('recvBody:\n%s\n' % recvBody)
-print('origBody:\n%s\n' % origBody)
+recvBody = '\n'.join(recvBody[breaker+1:])
+#print('recvBody:\n%s\n' % recvBody)
+#print('origBody:\n%s\n' % origBody)
 recvSvr.quit() #important! commits pending changes!
-#print('recvHeaders:\n%s\n' % recvHeaders)
-#print('origHeaders:\n%s\n' % origHeaders)
-#Sassert recvHeaders == origHeaders
+print('recvHeaders:\n%s\n' % recvHeaders)
+print('origHeaders:\n%s\n' % origHeaders)
+#assert recvHeaders == origHeaders
 assert recvBody == origBody #assert identical

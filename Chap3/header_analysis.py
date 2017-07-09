@@ -2,6 +2,8 @@
 import email
 import mailbox
 import re
+import requests
+import socket
 # Display X-Mailer or X-Mailfrom for each email
 # Display senders for emails with invalid Message-ID's
 # Display X-Authentication-Warning header if present.
@@ -56,3 +58,16 @@ for msg in messages:
     else:
         print("No return path for sender: %s" % msg['From'])
         print()
+
+print('\n')
+# Displays domain information.
+for msg in messages:
+    domain_name = domain_return_path.search(msg['From']).groups()[1]
+    ip = socket.getaddrinfo(domain_name, 80)[1][4][0] #80 is http
+    info = requests.get('http://ipinfo.io/%s' % ip).json()
+    print("From: %s" % msg['From'])
+    print('-*-'*22, end="\n")
+    print()
+    for key in info:
+        print("%s: %s" % (key, info[key]))
+    print()

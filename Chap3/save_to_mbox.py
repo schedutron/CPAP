@@ -38,4 +38,4 @@ for index in range(len(headers)):
         mbox.add(msg)
 mbox.flush()
 mbox.unlock()
-print("30 Emails successfully written to my_mbox.txt!")
+print("31 Emails successfully written to my_mbox.txt!")

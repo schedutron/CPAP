@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 'email-examples.py - demo creation of email messages'
+'Textbook had this in Python2, I ported it to Python3.'
 
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
@@ -29,7 +30,7 @@ def make_img_msg(fn):
 def sendMsg(fr, to, msg):
     s = SMTP('smtp.gmail.com')
     s.starttls()
-    s.login('saurabh.chaturvedi63@gmail.com', 'monty963')
+    s.login('saurabh.chaturvedi63@gmail.com', 'ImNotGonnaRevealMyPassword')
     errs = s.sendmail(fr, to ,msg)
     assert len(errs) == 0, errs #not in book
     s.quit()

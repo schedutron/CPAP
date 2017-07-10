@@ -8,6 +8,9 @@ import socket
 # Display senders for emails with invalid Message-ID's
 # Display X-Authentication-Warning header if present.
 
+# This script kinda also does what Exercise 3-28-e demands.
+# Furthermore, the e. part is vague, so I'm not implementing it for now.
+
 
 def check_spam(msg_word_list):
     for spam_word in spam_word_list:

@@ -2,6 +2,7 @@
 'email-examples.py - demo creation of email messages'
 'Textbook had this in Python2, I ported it to Python3.'
 
+from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -25,7 +26,7 @@ def make_mpa_msg():
     email.attach(html)
     return email
 
-#multpart: images
+#multipart: images
 def attach_images(*fns):
     email = MIMEMultipart()
     for fn in fns:
@@ -38,9 +39,22 @@ def attach_images(*fns):
         else:
             with open(fn, 'rb') as f:
                 data = f.read()
-        img = MIMEImage(data, name=fn)
+        img = MIMEImage(data, name=f)
         img.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
         email.attach(img)
+    return email
+
+
+# Adds multipart spreadsheets.
+def attach_sheets(*fns):
+    email = MIMEMultipart()
+    for fn in fns:
+        with open(fn, 'rb') as f:
+            data = f.read()
+        sheet = MIMEBase('application', 'vnd.ms-excel')
+        sheet.set_payload(data)
+        sheet.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
+        email.attach(sheet)
     return email
 
 def sendMsg(fr, to, msg):
@@ -62,9 +76,18 @@ if __name__ == "__main__":
     sendMsg(un, rcps, msg.as_string())
 
     print('Sending image msg...')
-    # Any number of image files can be passes.
+    # Any number of image files can be passed.
     msg = attach_images('https://docs.python.org/3/_static/py.png')
     msg['From'] = un
     msg['To'] = ', '.join(rcps)
     msg['Subject'] = 'image file test'
+    sendMsg(un, rcps, msg.as_string())
+
+    print('Sending spreadsheet msg...')
+    # Any number of image files can be passed.
+    msg = attach_sheets('check.csv', 'check2.csv')
+    msg['From'] = un
+    msg['To'] = ', '.join(rcps)
+    msg['Subject'] = 'spreadsheet file test'
+
     sendMsg(un, rcps, msg.as_string())

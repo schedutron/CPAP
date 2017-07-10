@@ -8,8 +8,10 @@ from email.mime.text import MIMEText
 from secret import * # Gets credentials for login.
 from smtplib import SMTP
 import re
+import requests
 
 img_patt = re.compile(r'(jp|pn)g|(g|t)if')
+url_patt = re.compile(r'https?://')
 
 #multipart alternative: text and html
 def make_mpa_msg():
@@ -31,8 +33,11 @@ def attach_images(*fns):
             # Following is kinda like throwing an exception, but better.
             print("%s doesn't seem to be an image file. Skipping." % fn)
             continue
-        with open(fn, 'rb') as f:
-            data = f.read()
+        if url_patt.match(fn):
+            data = requests.get(fn).content
+        else:
+            with open(fn, 'rb') as f:
+                data = f.read()
         img = MIMEImage(data, name=fn)
         img.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
         email.attach(img)
@@ -58,7 +63,7 @@ if __name__ == "__main__":
 
     print('Sending image msg...')
     # Any number of image files can be passes.
-    msg = attach_images('blah.blah', 'WTC.jpg')
+    msg = attach_images('https://docs.python.org/3/_static/py.png')
     msg['From'] = un
     msg['To'] = ', '.join(rcps)
     msg['Subject'] = 'image file test'

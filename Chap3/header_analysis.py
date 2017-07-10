@@ -17,7 +17,8 @@ mbox = mailbox.mbox('my_mbox.txt')
 # This loops prints the X-Mailer or X-Mailfrom header for each email.
 messages = []
 for mail in mbox:
-    msg = email.message_from_string(str(mail)[1:]) # [1:] removes the leading \n
+    mail_str = str(mail)
+    msg = email.message_from_string(mail_str[mail_str.find('X-Received'):]) # [1:] removes the leading \n
     if msg['X-Mailer']:
         print(msg['X-Mailer'], " - ", end="")
     elif msg['X-Mailfrom']:
@@ -42,19 +43,32 @@ for msg in messages:
         print('Subject: %s' % msg['Subject'])
         print()
 
-domain_from = re.compile(r'<.*@(.*)>')
-domain_return_path = re.compile(r'<.*@(.*\.)*(.+\..+)>')
+name_with_ip = re.compile(r'\((.*)\)')
+domain_return_path = re.compile(r'<.*@(.*)>')
+further_filter = re.compile(r'(.*\.)*(.+\..+)')
 print('\n')
 for msg in messages:
-    from_domain = domain_from.search(msg['From']).groups()[0]
-    return_path_domain = domain_return_path.search(msg['Return-Path'])
+    name_and_ip = name_with_ip.search(msg['Received']).groups()[0]
+    chunks = name_and_ip.split()
+    name_raw = chunks[0][:-1] # [:-1] strips off the trailing '.'
+    return_path_domain = domain_return_path.search(msg['Return-Path']) # CHANGE THE RE NAME!
     if return_path_domain:
-        return_path_domain = return_path_domain.groups()[1]
-        if return_path_domain not in from_domain:
-            print("Domain name conflict between From and Return-Path headers:")
-            print("From: %s" % msg['From'])
-            print("Return-Path: %s" % msg['Return-Path'])
+        return_path_domain = further_filter.search(return_path_domain.groups()[0]).groups()[1]
+        name = further_filter.search(name_raw).groups()[1]
+        if return_path_domain != name:
+            print("Domain name conflict between Received and Return-Path headers:")
+            print("Received: %s" % name)
+            print("Return-Path: %s" % return_path_domain)
             print()
+
+        ip = chunks[1][1:-1] # Slicing strips off '[' and ']'.
+        real_ip = socket.getaddrinfo(name_raw, 80)[1][4][0] #80 is http
+        if real_ip != ip:
+            print("Domain name and IP conflict:")
+            print("Domain name: %s" % name_raw)
+            print("IP: %s" % ip)
+            print("Real IP: %s" % real_ip)
+
     else:
         print("No return path for sender: %s" % msg['From'])
         print()
@@ -62,7 +76,8 @@ for msg in messages:
 print('\n')
 # Displays domain information.
 for msg in messages:
-    domain_name = domain_return_path.search(msg['From']).groups()[1]
+    domain_name = domain_return_path.search(msg['From']).groups()[0]
+    domain_name = further_filter.search(domain_name).groups()[1]
     ip = socket.getaddrinfo(domain_name, 80)[1][4][0] #80 is http
     info = requests.get('http://ipinfo.io/%s' % ip).json()
     print("From: %s" % msg['From'])
@@ -71,3 +86,5 @@ for msg in messages:
     for key in info:
         print("%s: %s" % (key, info[key]))
     print()
+
+spam_word_list = ['lol', 'joke', 'lottery', 'credit', 'approval', 'bonanza']

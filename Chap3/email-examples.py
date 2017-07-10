@@ -40,7 +40,7 @@ def attach_images(*fns):
         else:
             with open(fn, 'rb') as f:
                 data = f.read()
-        img = MIMEImage(data, name=f)
+        img = MIMEImage(data, name=fn)
         img.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
         email.attach(img)
     return email
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     msg['Subject'] = 'multipart alternative test'
     sendMsg(un, rcps, msg.as_string())
 
-    '''print('Sending image msg...')
+    print('Sending image msg...')
     # Any number of image files can be passed.
     msg = attach_images('https://docs.python.org/3/_static/py.png')
     msg['From'] = un
@@ -127,7 +127,7 @@ if __name__ == "__main__":
     msg['From'] = un
     msg['To'] = ', '.join(rcps)
     msg['Subject'] = 'doc file test'
-    sendMsg(un, rcps, msg.as_string())'''
+    sendMsg(un, rcps, msg.as_string())
 
     print('Sending files msg...')
     # Any number of image files can be passed.

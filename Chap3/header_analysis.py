@@ -8,9 +8,16 @@ import socket
 # Display senders for emails with invalid Message-ID's
 # Display X-Authentication-Warning header if present.
 
-def match(from_dom, return_path_dom):
-    pass
 
+def check_spam(msg_word_list):
+    for spam_word in spam_word_list:
+        count = 0
+        for word in msg_word_list:
+            if word == spam_word:
+                count += 1
+                if count == 3:
+                    return True
+    return False
 
 mbox = mailbox.mbox('my_mbox.txt')
 
@@ -88,3 +95,8 @@ for msg in messages:
     print()
 
 spam_word_list = ['lol', 'joke', 'lottery', 'credit', 'approval', 'bonanza']
+for i in range(len(mbox)):
+    if check_spam(str(mbox[i]).split()):
+        print("Detected spam mail:")
+        print("From: %s" % messages[i]['From'])
+        print("Subject: %s\n" % messages[i]['Subject'])

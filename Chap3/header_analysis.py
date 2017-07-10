@@ -8,8 +8,8 @@ import socket
 # Display senders for emails with invalid Message-ID's
 # Display X-Authentication-Warning header if present.
 
-# This script kinda also does what Exercise 3-28-e demands.
-# Furthermore, the e. part is vague, so I'm not implementing it for now.
+# At last, basic masquerading check has been added to kinda detect phishing.
+# But statement of Exercise 3-28-e is still vague!
 
 
 def check_spam(msg_word_list):
@@ -103,3 +103,11 @@ for i in range(len(mbox)):
         print("Detected spam mail:")
         print("From: %s" % messages[i]['From'])
         print("Subject: %s\n" % messages[i]['Subject'])
+
+for msg in messages:
+    if msg['X-Google-Original-From']:
+        # Sorry but for simplicity I assume that mails are downloaded from gmail.
+        if msg['From'] != msg['X-Google-Original-From']:
+            print("Possible Masquerading:")
+            print("From: %s" % msg['From'])
+            print("X-Google-Original-From: %s\n" % msg['X-Google-Original-From'])

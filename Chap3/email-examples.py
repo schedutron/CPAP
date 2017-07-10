@@ -5,6 +5,7 @@
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from secret import * # Gets credentials for login.
 from smtplib import SMTP
 
 #multipart alternative: text and html
@@ -20,17 +21,20 @@ def make_mpa_msg():
     return email
 
 #multpart: images
-def make_img_msg(fn):
-    with open(fn, 'rb') as f:
-        data = f.read()
-    email = MIMEImage(data, name=fn)
-    email.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
+def attach_images(*fns):
+    email = MIMEMultipart()
+    for fn in fns:
+        with open(fn, 'rb') as f:
+            data = f.read()
+        img = MIMEImage(data, name=fn)
+        img.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
+        email.attach(img)
     return email
 
 def sendMsg(fr, to, msg):
     s = SMTP('smtp.gmail.com')
     s.starttls()
-    s.login('saurabh.chaturvedi63@gmail.com', 'ImNotGonnaRevealMyPassword')
+    s.login(MAILBOX + '@gmail.com', PASSWD)
     errs = s.sendmail(fr, to ,msg)
     assert len(errs) == 0, errs #not in book
     s.quit()
@@ -38,7 +42,7 @@ def sendMsg(fr, to, msg):
 if __name__ == "__main__":
     print("Sending multipart alternative msg...")
     msg = make_mpa_msg()
-    un = 'saurabh.chaturvedi63@gmail.com'
+    un = MAILBOX + '@gmail.com'
     msg['From'] = un
     rcps = [un, '16ucc086@lnmiit.ac.in']
     msg['To'] = ', '.join(rcps)
@@ -46,7 +50,8 @@ if __name__ == "__main__":
     sendMsg(un, rcps, msg.as_string())
 
     print('Sending image msg...')
-    msg = make_img_msg('screenShot.png')
+    # Any number of image files can be passes.
+    msg = attach_images('ESB.jpg', 'NYCW.jpg', 'WTC.jpg')
     msg['From'] = un
     msg['To'] = ', '.join(rcps)
     msg['Subject'] = 'image file test'

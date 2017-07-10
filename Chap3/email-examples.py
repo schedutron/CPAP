@@ -73,6 +73,20 @@ def attach_docs(*fns):
     return email
 
 
+def attach_files(*fns):
+    """Adds multipart files."""
+    email = MIMEMultipart()
+    for fn in fns:
+        with open(fn, 'rb') as f:
+            data = f.read()
+        stuff = MIMEBase('application', 'octet-stream')
+        stuff.set_payload(data)
+        encoders.encode_base64(stuff)
+        stuff.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
+        email.attach(stuff)
+    return email
+
+
 def sendMsg(fr, to, msg):
     s = SMTP('smtp.gmail.com')
     s.starttls()
@@ -105,7 +119,7 @@ if __name__ == "__main__":
     msg['From'] = un
     msg['To'] = ', '.join(rcps)
     msg['Subject'] = 'spreadsheet file test'
-    sendMsg(un, rcps, msg.as_string())'''
+    sendMsg(un, rcps, msg.as_string())
 
     print('Sending doc msg...')
     # Any number of image files can be passed.
@@ -113,4 +127,12 @@ if __name__ == "__main__":
     msg['From'] = un
     msg['To'] = ', '.join(rcps)
     msg['Subject'] = 'doc file test'
+    sendMsg(un, rcps, msg.as_string())'''
+
+    print('Sending files msg...')
+    # Any number of image files can be passed.
+    msg = attach_files('check.csv', 'favicon.ico', 'calculator.kv', 'email-examples.py')
+    msg['From'] = un
+    msg['To'] = ', '.join(rcps)
+    msg['Subject'] = 'files test'
     sendMsg(un, rcps, msg.as_string())

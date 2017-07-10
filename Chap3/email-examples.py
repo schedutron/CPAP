@@ -7,6 +7,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from secret import * # Gets credentials for login.
 from smtplib import SMTP
+import re
+
+img_patt = re.compile(r'(jp|pn)g|(g|t)if')
 
 #multipart alternative: text and html
 def make_mpa_msg():
@@ -24,6 +27,10 @@ def make_mpa_msg():
 def attach_images(*fns):
     email = MIMEMultipart()
     for fn in fns:
+        if not img_patt.search(fn.split('.')[-1]):
+            # Following is kinda like throwing an exception, but better.
+            print("%s doesn't seem to be an image file. Skipping." % fn)
+            continue
         with open(fn, 'rb') as f:
             data = f.read()
         img = MIMEImage(data, name=fn)
@@ -51,7 +58,7 @@ if __name__ == "__main__":
 
     print('Sending image msg...')
     # Any number of image files can be passes.
-    msg = attach_images('ESB.jpg', 'NYCW.jpg', 'WTC.jpg')
+    msg = attach_images('blah.blah', 'WTC.jpg')
     msg['From'] = un
     msg['To'] = ', '.join(rcps)
     msg['Subject'] = 'image file test'

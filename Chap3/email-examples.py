@@ -2,6 +2,7 @@
 'email-examples.py - demo creation of email messages'
 'Textbook had this in Python2, I ported it to Python3.'
 
+from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
@@ -45,8 +46,8 @@ def attach_images(*fns):
     return email
 
 
-# Adds multipart spreadsheets.
 def attach_sheets(*fns):
+    '''Adds multipart spreadsheets.'''
     email = MIMEMultipart()
     for fn in fns:
         with open(fn, 'rb') as f:
@@ -56,6 +57,21 @@ def attach_sheets(*fns):
         sheet.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
         email.attach(sheet)
     return email
+
+
+def attach_docs(*fns):
+    """Adds multipart docs."""
+    email = MIMEMultipart()
+    for fn in fns:
+        with open(fn, 'rb') as f:
+            data = f.read()
+        doc = MIMEBase('application', 'vnd.ms-word')
+        doc.set_payload(data)
+        encoders.encode_base64(doc)
+        doc.add_header('Content-Disposition', 'attachment; filename="%s"' % fn)
+        email.attach(doc)
+    return email
+
 
 def sendMsg(fr, to, msg):
     s = SMTP('smtp.gmail.com')
@@ -75,7 +91,7 @@ if __name__ == "__main__":
     msg['Subject'] = 'multipart alternative test'
     sendMsg(un, rcps, msg.as_string())
 
-    print('Sending image msg...')
+    '''print('Sending image msg...')
     # Any number of image files can be passed.
     msg = attach_images('https://docs.python.org/3/_static/py.png')
     msg['From'] = un
@@ -89,5 +105,12 @@ if __name__ == "__main__":
     msg['From'] = un
     msg['To'] = ', '.join(rcps)
     msg['Subject'] = 'spreadsheet file test'
+    sendMsg(un, rcps, msg.as_string())'''
 
+    print('Sending doc msg...')
+    # Any number of image files can be passed.
+    msg = attach_docs('check.docx')
+    msg['From'] = un
+    msg['To'] = ', '.join(rcps)
+    msg['Subject'] = 'doc file test'
     sendMsg(un, rcps, msg.as_string())

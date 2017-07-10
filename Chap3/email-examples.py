@@ -74,7 +74,10 @@ def attach_docs(*fns):
 
 
 def attach_files(*fns):
-    """Adds multipart files."""
+    """
+    Adds multipart files. Very basic. Can be made better
+    by using multiple application types for MIMEBase object.
+    """
     email = MIMEMultipart()
     for fn in fns:
         with open(fn, 'rb') as f:

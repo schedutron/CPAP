@@ -48,6 +48,12 @@ def better_validate_arguments(func):
     return wrapped_func
 
 
+def jedi_mini_trick(func):
+    def _jedi_func():
+        return "Not the droid yo're looking for!"
+    return _jedi_func
+
+
 @validate_arguments
 def add(*args):
     return sum(args)
@@ -76,3 +82,8 @@ def divide_n_as_integers(*args):
 def bar(*args):
     """Bar frobs foo"""
     print(args)
+
+
+@jedi_mini_trick
+def get_droid():
+    print("Found the droid!")

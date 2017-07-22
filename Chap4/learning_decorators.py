@@ -13,13 +13,17 @@ def validate_two_arguments(n1, n2):
 
 
 def validate_arguments(func):
-    def wrapped_func(n1, n2):
-        if not validate_two_arguments(n1, n2):
-            raise Exception("Arguments must be numbers!")
-        return func(n1, n2)
+    def wrapped_func(*args):
+        for arg in args:
+            if not is_number(arg):
+                raise Exception("Arguments must be numbers!")
+        if len(args) < 2:
+            raise Exception("Must specify at least 2 arguments!")
+
+        return func(*args)
     return wrapped_func
 
 
 @validate_arguments
-def add(n1, n2):
-    return n1 + n2
+def add(*args):
+    return sum(args)

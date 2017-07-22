@@ -1,3 +1,6 @@
+from functools import wraps
+
+
 def is_number(n):
     try:
         float(n)
@@ -32,6 +35,19 @@ def validate_arguments(func):
     return wrapped_func
 
 
+def better_validate_arguments(func):
+    @wraps(func)
+    def wrapped_func(*args):
+        for arg in args:
+            if not is_number(arg):
+                raise Exception("Arguments must be numbers!")
+        if len(args) < 2:
+            raise Exception("Must specify at least 2 arguments!")
+
+        return func(*args)
+    return wrapped_func
+
+
 @validate_arguments
 def add(*args):
     return sum(args)
@@ -54,3 +70,9 @@ def divide_n_as_floats(*args):
 @convert_arguments_to(to_type=int)
 def divide_n_as_integers(*args):
     return divide_n(*args)
+
+
+@better_validate_arguments
+def bar(*args):
+    """Bar frobs foo"""
+    print(args)

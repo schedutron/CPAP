@@ -12,6 +12,13 @@ def validate_two_arguments(n1, n2):
     return True
 
 
+def convert_arguments(func):
+    def _wrapped_func(*args):
+        new_args = [float(arg) for arg in args]
+        return func(*new_args)
+    return _wrapped_func
+
+
 def validate_arguments(func):
     def wrapped_func(*args):
         for arg in args:
@@ -27,3 +34,12 @@ def validate_arguments(func):
 @validate_arguments
 def add(*args):
     return sum(args)
+
+
+@validate_arguments
+@convert_arguments
+def divide_n(*args):
+    cumu = args[0]
+    for arg in args[1:]:
+        cumu /= arg
+    return cumu

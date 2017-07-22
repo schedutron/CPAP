@@ -1,3 +1,7 @@
+"""
+Code learned from tutorial at:
+https://github.com/google/py-decorators-tutorial
+"""
 from functools import wraps
 
 

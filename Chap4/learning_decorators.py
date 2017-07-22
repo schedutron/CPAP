@@ -11,12 +11,13 @@ def validate_two_arguments(n1, n2):
         return False
     return True
 
-
-def convert_arguments(func):
-    def _wrapped_func(*args):
-        new_args = [float(arg) for arg in args]
-        return func(*new_args)
-    return _wrapped_func
+def convert_arguments_to(to_type=float):
+    def _wrapper(func):
+        def _wrapped_func(*args):
+            new_args = [to_type(arg) for arg in args]
+            return func(*new_args)
+        return _wrapped_func
+    return _wrapper
 
 
 def validate_arguments(func):
@@ -37,9 +38,19 @@ def add(*args):
 
 
 @validate_arguments
-@convert_arguments
 def divide_n(*args):
     cumu = args[0]
     for arg in args[1:]:
         cumu /= arg
     return cumu
+
+# Both of the functions below will give the same result because Python3 doesn't
+# do integer division by default.
+@convert_arguments_to(to_type=float)
+def divide_n_as_floats(*args):
+    return divide_n(*args)
+
+
+@convert_arguments_to(to_type=int)
+def divide_n_as_integers(*args):
+    return divide_n(*args)

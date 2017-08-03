@@ -12,18 +12,16 @@ lock = Lock()
 loops = (randrange(2, 5) for x in range(randrange(3, 7)))
 remaining = CleanOutputSet()
 
-def loop(nsec):
+def loop(nsec):  # Uses a with statement.
     myname = currentThread().name
-    lock.acquire()
-    remaining.add(myname)
-    print("[%s] Started %s" % (ctime(), myname))
-    lock.release()
+    with lock:
+        remaining.add(myname)
+        print("[%s] Started %s" % (ctime(), myname))
     sleep(nsec)
-    lock.acquire()
-    remaining.remove(myname)
-    print("[%s] Completed %s (%d secs)" % (ctime(), myname, nsec))
-    print("    (remaining: %s)" % (remaining or "NONE"))
-    lock.release()
+    with lock:
+        remaining.remove(myname)
+        print("[%s] Completed %s (%d secs)" % (ctime(), myname, nsec))
+        print("    (remaining: %s)" % (remaining or "NONE"))
 
 
 def _main():

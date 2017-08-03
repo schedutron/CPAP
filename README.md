@@ -1,6 +1,6 @@
 # Core Python Applications Programming
 ## by Wesley Chun
-### My solutions to the rigorous exercises in the excellent book
+### My Solutions to the Rigorous Exercises in the Excellent Book
 ***
 
 

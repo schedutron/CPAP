@@ -1,6 +1,7 @@
 # Core Python Applications Programming
 ## by Wesley Chun
 ### My Solutions to the Rigorous Exercises in the Excellent Book
+(Most of them in Python 3)
 ***
 
 

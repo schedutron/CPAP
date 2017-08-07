@@ -10,7 +10,7 @@
     * [Example 4-11: Candy Vending Machines and Semaphores (candy.py)][e4-11]
     * [Example 4-12: Producer-Consumer Problem (prodcons.py)][e4-12]
     * [Example 4-13: Higher-Level Job Management (bookrank3CF.py)][e4-13]
-    * <br>
+    * ***
     * [Exercise 4-1: Processes vs. Threads (processes_vs_threads.md)][4-1]
     * [Exercise 4-2: Utility of multithreading in Python (python_threads.md)][4-2]
 

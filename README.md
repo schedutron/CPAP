@@ -13,6 +13,7 @@
     * ***
     * [Exercise 4-1: Processes vs. Threads (processes_vs_threads.md)][4-1]
     * [Exercise 4-2: Utility of multithreading in Python (python_threads.md)][4-2]
+    * [Exercise 4-3: Mulithreading on Multicore System (threads_multicore.md)][4-3]
 
 [chap4]: /Chap4
 [e4-10]: /Chap4/mtsleepF.py
@@ -21,3 +22,4 @@
 [e4-13]: /Chap4/bookrank3CF.py
 [4-1]: /Chap4/processes_vs_threads.md
 [4-2]: /Chap4/python_threads.md
+[4-3]: /Chap4/threads_multicore.md

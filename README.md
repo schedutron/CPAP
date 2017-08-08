@@ -15,6 +15,7 @@
     * [Exercise 4-2: Utility of multithreading in Python (python_threads.md)][4-2]
     * [Exercise 4-3: Mulithreading on Multicore System (threads_multicore.md)][4-3]
     * [Exercise 4-4-a: Simple Byte Count (bytes_count.py)][4-4-a]
+    * [Exercise 4-4-b: Multithreaded Byte Count (mt_bytes_count.py)][4-4-b]
 
 [chap4]: /Chap4
 [e4-10]: /Chap4/mtsleepF.py
@@ -25,3 +26,4 @@
 [4-2]: /Chap4/python_threads.md
 [4-3]: /Chap4/threads_multicore.md
 [4-4-a]: /Chap4/bytes_count.py
+[4-4-b]: /Chap4/mt_bytes_count.py

@@ -21,6 +21,7 @@
     * [Exercise 4-7: Threads and Web Programming (Optional, to be done)(mtcrawl.py)][4-7]
     * [Exercise 4-8: Thread Pools (thread_pools.py)][4-8]
     * [Exercise 4-9: Files ([mt_lines_counter.py][4-9]) Single threaded version runs faster than the multithreaded one.]
+    * [Exercise 4-10: Concurrent Processing (concurrent_processing.py)][4-10]
 
 [chap4]: /Chap4
 [e4-10]: /Chap4/mtsleepF.py
@@ -39,3 +40,4 @@
 [4-7]: /Chap4/mtcrawl.py
 [4-8]: /Chap4/thread_pools.py
 [4-9]: /Chap4/mt_lines_counter.py
+[4-10]: /Chap4/concurrent_processing.py

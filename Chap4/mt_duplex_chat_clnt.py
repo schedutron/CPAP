@@ -21,49 +21,40 @@ class ChatClient():
         self.chatCliSock = socket(AF_INET, SOCK_STREAM)
         self.msg = ""
         self.your_msg = ""
+        self.connected = False
+        self.recv_thread = Thread(target=self.get_msg)
+        self.raw_input_thread = Thread(target=self.get_your_msg)
 
     def get_msg(self):
         while 1:
             self.msg = self.chatCliSock.recv(self.BUFSIZ)
             if self.msg == 'quit()':
                 print "\t\tServer left the chat."
+                self.connected = False
                 break
             print "\t\tServer:", self.msg
             print "-|"
 
     def get_your_msg(self):
-        while True:
+        while self.connected:
             while self.your_msg == "":
                 self.your_msg = raw_input("-|\n")
 
             self.chatCliSock.send(self.your_msg)
             if self.your_msg == 'quit()':
+                self.connected = False
                 break
             self.your_msg = ""
 
     def run(self):
         self.chatCliSock.connect(self.hostAddr)
+        self.connected = True
+        self.recv_thread.start()
 
-        recv_thread = Thread(target=self.get_msg)
-        recv_thread.start()
+        self.raw_input_thread.start()
 
-        raw_input_thread = Thread(target=self.get_your_msg)
-        raw_input_thread.start()
-
-        recv_thread.join()
-        raw_input_thread.join()
-        '''while True:
-            msg = self.chatCliSock.recv(self.BUFSIZ)
-
-            msg = ""
-            while msg == "":
-                msg = raw_input("-|-> ")
-
-            if msg == 'quit()':
-                self.chatCliSock.send(msg)
-                break
-
-            self.chatCliSock.send(msg)'''
+        self.recv_thread.join()
+        self.raw_input_thread.join()
 
         self.chatCliSock.close()
 

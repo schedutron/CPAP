@@ -16,8 +16,8 @@ class ChatServer():
         self.msg = ""
         self.your_msg = ""
         self.connected = False
-        self.lock = Lock()
-        self.recv_lock = Lock()
+        self.recv_thread = Thread(target=self.get_msg, args=tuple())
+        self.raw_input_thread = Thread(target=self.get_your_msg)
 
     def get_msg(self):
         while 1:
@@ -32,7 +32,7 @@ class ChatServer():
 
 
     def get_your_msg(self):
-        while 1:
+        while self.connected:
             while self.your_msg == "":
                 self.your_msg = raw_input("-|\n")
 
@@ -52,12 +52,10 @@ class ChatServer():
 
             self.connected = True
             print("Connected to:", self.cliAddr)
-            recv_thread = Thread(target=self.get_msg, args=tuple())
-            raw_input_thread = Thread(target=self.get_your_msg)
-            recv_thread.start()
-            raw_input_thread.start()
-            recv_thread.join()
-            raw_input_thread.join()
+            self.recv_thread.start()
+            self.raw_input_thread.start()
+            self.recv_thread.join()
+            self.raw_input_thread.join()
             '''
             while self.connected:
                 if self.msg:

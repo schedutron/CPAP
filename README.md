@@ -19,6 +19,7 @@
     * Exercise 4-5: Threads, Files and Regex ([mt_simple_header_analysis.py][4-5-i], [simple_header_analysis.py][4-5-ii])
     * Exercise 4-6: Threads and Networking ([mt_duplex_chat_serv.py][4-6-i], [mt_duplexc_chat_clnt.py][4-6-ii])
     * [Exercise 4-7: Threads and Web Programming (Optional, to be done)(mtcrawl.py)][4-7]
+    * [Exercise 4-8: Thread Pools (thread_pools.py)][4-8]
 
 [chap4]: /Chap4
 [e4-10]: /Chap4/mtsleepF.py
@@ -35,3 +36,4 @@
 [4-6-i]: /Chap4/mt_duplex_chat_serv.py
 [4-6-ii]: /Chap4/mt_duplexc_chat_clnt.py
 [4-7]: /Chap4/mtcrawl.py
+[4-8]: /Chap4/thread_pools.py

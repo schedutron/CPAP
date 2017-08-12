@@ -13,15 +13,19 @@ called in the unlocked state, a `RunTimeError` is raised.
 
 Snippet:
 ```
+from threading import Lock, Thread
+
 lock = Lock()
 g = 0
 
 def add_one():
+    global g  # Just used for demonstration. It's bad to use the 'global' statement in general.
     lock.acquire()
     g += 1
     lock.release()
 
 def add_two():
+    global g
     lock.acquire()
     g += 2
     lock.release()
@@ -30,6 +34,9 @@ threads = []
 for func in [add_one, add_two]:
     threads.append(Thread(target=func))
     threads[-1].start()
+
+for thread in threads:  # Waits for threads to complete before moving on with the main script.
+    thread.join()
 
 print(g)
 ```
@@ -222,7 +229,7 @@ is available.
 ### Barrier
 A barrier is a simple synchronization primitive which can be used by different
 threads to wait for each other. Each thread tries to pass a barrier by calling
-the `wait()` method, which will block until all of threads have made the call.
+the `wait()` method, which will block until all of threads have made that call.
 As soon as that happens, the threads are released simultaneously. Following
 snippet demonstrates the use of `Barrier`s.
 
@@ -253,7 +260,7 @@ for thread in threads:  # Waits for the threads to complete before moving on wit
 print("\nRace over!")
 ```
 
-Barriers can find many uses, one of them being synchronizing a server and a
+Barriers can find many uses; one of them being synchronizing a server and a
 client - as the server has to wait for the client after initializing itself.
 
 Sources: [effbot.org][effbot], [bogotobogo.com][bogoto], [Python Docs][Python Docs]

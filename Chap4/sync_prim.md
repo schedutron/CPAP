@@ -34,6 +34,63 @@ for func in [add_one, add_two]:
 print(g)
 ```
 
+### Semaphores
+Semaphores are simply advanced counters. An `acquire()` call to a semaphore will
+block only after a number of threads have `acquire()`ed it. The associated
+counter decreases per `acquire()` call, and increases per `release()` call.
+A `ValueError` will occur if `release()` calls try to increment the counter
+beyond it's assigned maximum value (which is the number of threads that can
+`acquire()` the semaphore before blocking occurs). Following snippet
+demonstrates the use of semaphores in a simple producer-consumer problem.
+
+Snippet:
+
+```
+import random, time
+from threading import BoundedSemaphore, Thread
+
+max_items = 5
+container = BoundedSemaphore(max_items)  # consider this as a container with a capacity of 5 items.
+
+def producer(nloops):
+    for i in range(nloops):
+        time.sleep(random.randrange(2, 5))
+        print(time.ctime(), end=": ")
+        try:
+            container.release()
+            print("Produced an item.")
+        except ValueError:
+            print("Full, skipping.")
+
+def consumer(nloops):
+    for i in range(nloops):
+        time.sleep(random.randrange(2, 5))
+        print(time.ctime(), end=": ")
+        if container.acquire(False):  # Here we disable the default blocking behaviour by passing False for the blocking flag.
+            print("Consumed an item.")
+        else:
+            print("Empty, skipping.")
+
+threads = []
+nloops = random.randrange(3, 6)
+print("Starting with %s items." % max_items)
+for func in [producer, consumer]:
+    threads.append(Thread(target=func, args=(nloops,)))
+    threads[-1].start()
+for thread in threads:  # Waits for threads to complete before moving on with the main script.
+    thread.join()
+print("All done.")
+```
+The `threading` module also provides the simple `Semaphore`
+class. A `Semaphore` provides a non-bounded counter which allows you to call `release()`any
+number of times for incrementing. However, to avoid programming errors,
+it’s usually a correct choice to use `BoundedSemaphore`, which raises
+an error if a `release()` call tries to increase the counter beyond it's maximum size.
+
+Semaphores are typically used for limiting a resource, like limiting a server to
+handle only 10 clients at a time. In such a case, multiple thread connections compete
+for a limited resource (in our example, it is the server).
+
 ### RLocks
 The standard `Lock` doesn’t know which thread is currently holding the
 lock. If the lock is held, any thread that attempts to acquire it will
@@ -67,7 +124,7 @@ One good use case for `RLock`s is recursion, when a parent call  of a function w
 block its nested call. Thus, the main use for `RLock`s is nested access to shared
 resources.
 
-###Events
+### Events
 The `Event` synchronization primitive acts as a simple communicator between
 threads. They are based on an internal flag which threads can `set()` or `clear()`.
 Other threads can `wait()` for the internal flag to be `set()`. The `wait()`
@@ -113,7 +170,7 @@ to signal the availability of a resource for consumption. Other threads must
 also `acquire()` the condition (and thus its related lock) before `wait()`ing for the condition
 to be satisfied. Also, a thread should `release()` a `Condition` once it's done
 with working with the related actions, so that other threads can acquire it for
-their purposes.Following snippet demonstrates the implementation of a simple
+their purposes.Following snippet demonstrates the implementation of another simple
 producer-consumer problem with the help of the `Condition` object.
 
 Snippet:

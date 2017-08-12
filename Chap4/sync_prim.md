@@ -51,6 +51,7 @@ from threading import BoundedSemaphore, Thread
 
 max_items = 5
 container = BoundedSemaphore(max_items)  # consider this as a container with a capacity of 5 items.
+                                         # Defaults to 1 if nothing is passed.
 
 def producer(nloops):
     for i in range(nloops):
@@ -218,6 +219,44 @@ There can be other uses of `Conditions`. I think they will be useful when you're
 developing a streaming API which notifies a waiting client once a piece of data
 is available.
 
-Sources: [effbot.org][effbot], [bogotobogo.com][bogoto]
+### Barrier
+A barrier is a simple synchronization primitive which can be used by different
+threads to wait for each other. Each thread tries to pass a barrier by calling
+the `wait()` method, which will block until all of threads have made the call.
+As soon as that happens, the threads are released simultaneously. Following
+snippet demonstrates the use of `Barrier`s.
+
+Snippet:
+```
+from random import randrange
+from threading import Barrier, Thread
+from time import ctime, sleep
+
+num = 4
+b = Barrier(num) # 4 threads will need to pass this barrier to get released.
+names = ["Harsh", "Lokesh", "George", "Iqbal"]
+
+def player():
+    name = names.pop()
+    sleep(randrange(2, 5))
+    print("%s reached the barrier at: %s" % (name, ctime()))
+    b.wait()
+
+threads = []
+print("Race starts now...")
+for i in range(num):
+    threads.append(Thread(target=player))
+    threads[-1].start()
+
+for thread in threads:  # Waits for the threads to complete before moving on with the main script.
+    thread.join()
+print("\nRace over!")
+```
+
+Barriers can find many uses, one of them being synchronizing a server and a
+client - as the server has to wait for the client after initializing itself.
+
+Sources: [effbot.org][effbot], [bogotobogo.com][bogoto], [Python Docs][Python Docs]
 [effbot]: http://effbot.org/zone/thread-synchronization.htm
 [bogoto]: http://www.bogotobogo.com/python/Multithread/
+[Python Docs]: https://docs.python.org/3/library/threading.html

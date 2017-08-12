@@ -84,9 +84,11 @@ def consumer(nloops):
 threads = []
 nloops = random.randrange(3, 6)
 print("Starting with %s items." % max_items)
-for func in [producer, consumer]:
-    threads.append(Thread(target=func, args=(nloops,)))
-    threads[-1].start()
+threads.append(Thread(target=producer, args=(nloops,)))
+threads.append(Thread(target=consumer, args=(random.randrange(nloops, nloops+max_items+2),)))
+
+for thread in threads:  # Starts all the threads.
+    thread.start()
 for thread in threads:  # Waits for threads to complete before moving on with the main script.
     thread.join()
 print("All done.")

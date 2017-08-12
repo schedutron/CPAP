@@ -22,6 +22,8 @@
     * [Exercise 4-8: Thread Pools (thread_pools.py)][4-8]
     * [Exercise 4-9: Files ([mt_lines_counter.py][4-9]) Single threaded version runs faster than the multithreaded one.]
     * [Exercise 4-10: Concurrent Processing (concurrent_processing.py)][4-10]
+    * [Exercise 4-11: Synchronization Primitives (sync_prim.md)][4-11]
+    * [Exercise 4-12: Porting to Python 3 (already built Example 4-11 in Python3) (candy.py)][e4-11]
 
 [chap4]: /Chap4
 [e4-10]: /Chap4/mtsleepF.py
@@ -41,3 +43,4 @@
 [4-8]: /Chap4/thread_pools.py
 [4-9]: /Chap4/mt_lines_counter.py
 [4-10]: /Chap4/concurrent_processing.py
+[4-11]: /Chap4/sync_prim.md

@@ -40,6 +40,8 @@ for thread in threads:  # Waits for threads to complete before moving on with th
 
 print(g)
 ```
+Locks can be used to avoid inconsistent output by allowing only one thread to
+modify data at a time.
 
 ### Semaphores
 Semaphores are simply advanced counters. An `acquire()` call to a semaphore will

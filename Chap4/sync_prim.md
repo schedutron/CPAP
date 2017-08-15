@@ -268,6 +268,7 @@ Barriers can find many uses; one of them being synchronizing a server and a
 client - as the server has to wait for the client after initializing itself.
 
 Sources: [effbot.org][effbot], [bogotobogo.com][bogoto], [Python Docs][Python Docs]
+
 [effbot]: http://effbot.org/zone/thread-synchronization.htm
 [bogoto]: http://www.bogotobogo.com/python/Multithread/
 [Python Docs]: https://docs.python.org/3/library/threading.html

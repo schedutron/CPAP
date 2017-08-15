@@ -21,7 +21,7 @@
     * Exercise 4-6: Threads and Networking ([mt_duplex_chat_serv.py][4-6-i], [mt_duplexc_chat_clnt.py][4-6-ii])
     * [Exercise 4-7: Threads and Web Programming (Optional, to be done)(mtcrawl.py)][4-7]
     * [Exercise 4-8: Thread Pools (thread_pools.py)][4-8]
-    * [Exercise 4-9: Files ([mt_lines_counter.py][4-9]) Single threaded version runs faster than the multithreaded one.]
+    * Exercise 4-9: Files ([mt_lines_counter.py][4-9]) Single threaded version runs faster than the multithreaded one.
     * [Exercise 4-10: Concurrent Processing (concurrent_processing.py)][4-10]
     * [Exercise 4-11: Synchronization Primitives (sync_prim.md)][4-11]
     * [Exercise 4-12: Porting to Python 3 (already built Example 4-11 in Python3) (candy.py)][e4-11]
@@ -30,6 +30,7 @@
 * [Chapter 5: GUI Programming][chap5]
     * [Example 5-1: Label Widget Demo (tkhello1.py)][e5-1]
     * [Example 5-2: Button Widget Demo (tkhello2.py)][e5-2]
+    * [Example 5-3: Label and Button Widget Demo (tkhello3.py)][e5-3]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -55,3 +56,4 @@
 [chap5]: /Chap5
 [e5-1]: /Chap5/tkhello1.py
 [e5-2]: /Chap5/tkhello2.py
+[e5-3]: /Chap5/tkhello3.py

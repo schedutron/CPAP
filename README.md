@@ -25,8 +25,11 @@
     * [Exercise 4-10: Concurrent Processing (concurrent_processing.py)][4-10]
     * [Exercise 4-11: Synchronization Primitives (sync_prim.md)][4-11]
     * [Exercise 4-12: Porting to Python 3 (already built Example 4-11 in Python3) (candy.py)][e4-11]
+***
+
 * [Chapter 5: GUI Programming][chap5]
     * [Example 5-1: Label Widget Demo (tkhello1.py)][e5-1]
+    * [Example 5-2: Button Widget Demo (tkhello2.py)][e5-2]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -51,3 +54,4 @@
 
 [chap5]: /Chap5
 [e5-1]: /Chap5/tkhello1.py
+[e5-2]: /Chap5/tkhello2.py

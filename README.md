@@ -31,6 +31,7 @@
     * [Example 5-1: Label Widget Demo (tkhello1.py)][e5-1]
     * [Example 5-2: Button Widget Demo (tkhello2.py)][e5-2]
     * [Example 5-3: Label and Button Widget Demo (tkhello3.py)][e5-3]
+    * [Example 5-4: Label, Button and Scale Demonstration (tkhello4.py)][e5-4]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -57,3 +58,4 @@
 [e5-1]: /Chap5/tkhello1.py
 [e5-2]: /Chap5/tkhello2.py
 [e5-3]: /Chap5/tkhello3.py
+[e5-4]: /Chap5/tkhello4.py

@@ -33,6 +33,8 @@
     * [Example 5-3: Label and Button Widget Demo (tkhello3.py)][e5-3]
     * [Example 5-4: Label, Button and Scale Demonstration (tkhello4.py)][e5-4]
     * [Example 5-5: Road Signs PFA GUI Application (pfaGUI.py)][e5-5]
+    * [Example 5-6: File System Traversal GUI (listdir.py)][e5-6]
+    * [Example 5-7: Tix GUI Demo (animalTix.pyw)][e5-7]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -61,3 +63,5 @@
 [e5-3]: /Chap5/tkhello3.py
 [e5-4]: /Chap5/tkhello4.py
 [e5-5]: /Chap5/pfaGUI.py
+[e5-6]: /Chap5/listdir.py
+[e5-7]: /Chap5/animalTix.pyw

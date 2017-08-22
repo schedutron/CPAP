@@ -39,6 +39,7 @@
     * [Example 5-9: wxPython GUI Demo (animalWx.pyw)][e5-9]
     * [Example 5-10: PyGTK GUI Demo (animalGtk.pyw)][e5-10]
     * [Example 5-11: Tile/Ttk GUI Demo (animalTtk.pyw)][e5-11]
+    * [Example 5-12: Tile/Ttk Python 3 GUI Demo (animalTtk3.pyw)][e5-12]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -73,3 +74,4 @@
 [e5-9]: /Chap5/animalWx.pyw
 [e5-10]: /Chap5/animalGtk.pyw
 [e5-11]: /Chap5/animalTtk.pyw
+[e5-12]: /Chap5/animalTtk3.pyw

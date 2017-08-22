@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from tkinter import Tk, Spinbox
 from tkinter.ttk import Style, Label, Button, Combobox

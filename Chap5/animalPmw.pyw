@@ -8,7 +8,7 @@ top = initialise()
 lb = Label(top, text="Animals (in pairs; min: pair, max: dozen)")
 lb.pack()
 
-ct = Counter(top, labelpos=W, label_text="Number:", datatype="integer", entryfield_value=2,
+ct = Counter(top, labelpos=W, label_text="Number:", datatype="integer", entryfield_value=2, increment=2,
     entryfield_validate={"validator": "integer", "min": 2, "max": 12})
 ct.pack()
 

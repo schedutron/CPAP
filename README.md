@@ -36,6 +36,7 @@
     * [Example 5-6: File System Traversal GUI (listdir.py)][e5-6]
     * [Example 5-7: Tix GUI Demo (animalTix.pyw)][e5-7]
     * [Example 5-8: Pmw GUI Demo (animalPmw.pyw)][e5-8]
+    * [Example 5-9: wxPython GUI Demo (animalWx.pyw)][e5-9]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -67,3 +68,4 @@
 [e5-6]: /Chap5/listdir.py
 [e5-7]: /Chap5/animalTix.pyw
 [e5-8]: /Chap5/animalPmw.pyw
+[e5-9]: /Chap5/animalWx.pyw

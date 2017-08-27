@@ -40,6 +40,8 @@
     * [Example 5-10: PyGTK GUI Demo (animalGtk.pyw)][e5-10]
     * [Example 5-11: Tile/Ttk GUI Demo (animalTtk.pyw)][e5-11]
     * [Example 5-12: Tile/Ttk Python 3 GUI Demo (animalTtk3.pyw)][e5-12]
+    * ***
+    * Exercise 5-1: Client/Server Architecture (client\_server\_architecture.md)[5-1]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -75,3 +77,4 @@
 [e5-10]: /Chap5/animalGtk.pyw
 [e5-11]: /Chap5/animalTtk.pyw
 [e5-12]: /Chap5/animalTtk3.pyw
+[5-1]: /Chap5/client_server_architecture.md

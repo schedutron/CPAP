@@ -46,6 +46,7 @@
     * Exercise 5-3: Label Widgets ([tkhello1.py][5-3])
     * Exercise 5-4: Label and Button Widgets (modified in Exercise 5-5) ([tkhello3.py][5-4])
     * Exercise 5-5: Label, Button and Radiobutton Widgets ([tkhello3.py][5-5])
+    * Exercise 5-6: Label and Entry Widgets and Python I/O ([file_reader.py][5-6])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -86,3 +87,4 @@
 [5-3]: /Chap5/tkhello1.py
 [5-4]: /Chap5/tkhello3.py
 [5-5]: /Chap5/tkhello3.py
+[5-6]: /Chap5/file_reader.py

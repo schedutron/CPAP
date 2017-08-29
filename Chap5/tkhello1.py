@@ -3,6 +3,6 @@
 import tkinter
 
 top = tkinter.Tk()
-label = tkinter.Label(top, text="Hello World!")
+label = tkinter.Label(top, text="Hello, computer user!")
 label.pack()
 tkinter.mainloop()

@@ -28,9 +28,9 @@
 ***
 
 * [Chapter 5: GUI Programming][chap5]
-    * [Example 5-1: Label Widget Demo (tkhello1.py)][e5-1]
+    * [Example 5-1: Label Widget Demo (changed in Exercise 5-3) (tkhello1.py)][e5-1]
     * [Example 5-2: Button Widget Demo (tkhello2.py)][e5-2]
-    * [Example 5-3: Label and Button Widget Demo (tkhello3.py)][e5-3]
+    * [Example 5-3: Label and Button Widget Demo (Changed in Exercise 5-4) (tkhello3.py)][e5-3]
     * [Example 5-4: Label, Button and Scale Demonstration (tkhello4.py)][e5-4]
     * [Example 5-5: Road Signs PFA GUI Application (pfaGUI.py)][e5-5]
     * [Example 5-6: File System Traversal GUI (listdir.py)][e5-6]
@@ -41,7 +41,10 @@
     * [Example 5-11: Tile/Ttk GUI Demo (animalTtk.pyw)][e5-11]
     * [Example 5-12: Tile/Ttk Python 3 GUI Demo (animalTtk3.pyw)][e5-12]
     * ***
-    * Exercise 5-1: Client/Server Architecture (client\_server\_architecture.md)[5-1]
+    * Exercise 5-1: Client/Server Architecture ([client\_server\_architecture.md][5-1])
+    * Exercise 5-2: Object-Oriented Programming ([oop.md][5-2])
+    * Exercise 5-3: Label Widgets ([tkhello1.py][5-3])
+    * Exercise 5-4: Label and Button Widgets ([tkhello3.py][5-4])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -78,3 +81,6 @@
 [e5-11]: /Chap5/animalTtk.pyw
 [e5-12]: /Chap5/animalTtk3.pyw
 [5-1]: /Chap5/client_server_architecture.md
+[5-2]: /Chap5/oop.md
+[5-3]: /Chap5/tkhello1.py
+[5-4]: /Chap5/tkhello3.py

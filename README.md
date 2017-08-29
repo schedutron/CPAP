@@ -44,7 +44,8 @@
     * Exercise 5-1: Client/Server Architecture ([client\_server\_architecture.md][5-1])
     * Exercise 5-2: Object-Oriented Programming ([oop.md][5-2])
     * Exercise 5-3: Label Widgets ([tkhello1.py][5-3])
-    * Exercise 5-4: Label and Button Widgets ([tkhello3.py][5-4])
+    * Exercise 5-4: Label and Button Widgets (modified in Exercise 5-5) ([tkhello3.py][5-4])
+    * Exercise 5-5: Label, Button and Radiobutton Widgets ([tkhello3.py][5-5])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -84,3 +85,4 @@
 [5-2]: /Chap5/oop.md
 [5-3]: /Chap5/tkhello1.py
 [5-4]: /Chap5/tkhello3.py
+[5-5]: /Chap5/tkhello3.py

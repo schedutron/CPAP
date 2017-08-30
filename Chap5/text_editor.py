@@ -91,7 +91,7 @@ def change_dimensions():
 
 top = tkinter.Tk()
 top.geometry("640x480")
-main_title = "File Reader"
+main_title = "Text Editor"
 top.title(main_title)
 switch = False  # For dimension changes.
 state = 1  # 1 for saved, 0 for unsaved.

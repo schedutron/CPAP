@@ -15,7 +15,7 @@ main_title = "File Reader"
 top.title(main_title)
 content = tkinter.StringVar()
 filename = tkinter.StringVar()
-text_label = tkinter.Label(top, textvariable=content, justify=tkinter.LEFT)
+text_label = tkinter.Label(top, textvariable=content, justify=tkinter.LEFT, anchor=tkinter.W)
 text_label.pack(fill='both')
 
 entry_field = tkinter.Entry(top, width=50, textvariable=filename)

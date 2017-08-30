@@ -49,7 +49,10 @@
     * Exercise 5-6: Label, Button and Entry Widgets ([tkhello3.py][5-6])
     ![Output for Exercise 5-6](/Chap5/screenshots/E5-6.png)
     * Exercise 5-7: Label and Entry Widgets and Python I/O (extra credit stuff will be done later) ([file_reader.py][5-7])
+    ![Output for Exercise 5-7](/Chap5/screenshots/E5-7.png)
     * Exercise 5-8: Simple Text Editor ([text_editor.py][5-8])
+    ![Output for Exercise 5-8](/Chap5/screenshots/E5-8-0.png)
+    ![Output for Exercise 5-8](/Chap5/screenshots/E5-8-1.png)
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

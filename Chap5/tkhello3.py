@@ -24,9 +24,8 @@ hello.pack()
 
 v = tkinter.StringVar(top)
 v.set(hello["text"])
-for text in ["Click here", "Click on Me", "I'm the One"]:
-    text_button = tkinter.Radiobutton(top, text=text, variable=v, value=text)
-    text_button.pack(anchor=W)
+entry_field = tkinter.Entry(top, textvariable=v)
+entry_field.pack()
 
 update = tkinter.Button(top, text="Update", command=lambda: hello.config(text=v.get()))  # To update the label's text.
 update.pack()

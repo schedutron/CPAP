@@ -45,7 +45,9 @@
     * Exercise 5-2: Object-Oriented Programming ([oop.md][5-2])
     * Exercise 5-3: Label Widgets ([tkhello1.py][5-3])
     * Exercise 5-4: Label and Button Widgets (modified in Exercise 5-5) ([tkhello3.py][5-4])
-    * Exercise 5-5: Label, Button and Radiobutton Widgets ([tkhello3.py][5-5])
+    * Exercise 5-5: Label, Button and Radiobutton Widgets (modified in Exercise 5-6) ([tkhello3.py][5-5])
+    * Exercise 5-6: Label, Button and Entry Widgets ([tkhello3.py][5-6])
+    ![Output for Exercise 5-6](/Chap5/screenshots/E5-6.png)
     * Exercise 5-7: Label and Entry Widgets and Python I/O (extra credit stuff will be done later) ([file_reader.py][5-7])
     * Exercise 5-8: Simple Text Editor ([text_editor.py][5-8])
 
@@ -88,5 +90,6 @@
 [5-3]: /Chap5/tkhello1.py
 [5-4]: /Chap5/tkhello3.py
 [5-5]: /Chap5/tkhello3.py
+[5-6]: /Chap5/tkhello3.py
 [5-7]: /Chap5/file_reader.py
 [5-8]: /Chap5/text_editor.py

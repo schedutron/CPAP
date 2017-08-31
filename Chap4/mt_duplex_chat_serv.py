@@ -56,29 +56,6 @@ class ChatServer():
             self.raw_input_thread.start()
             self.recv_thread.join()
             self.raw_input_thread.join()
-            '''
-            while self.connected:
-                if self.msg:
-                    if self.msg == "quit()":
-                        print("Client left the chat.\n")
-                        self.connected = False
-                        break
-
-                    print("\rClient:", self.msg)
-                    #sys.stdout.write("-|-> ")
-                    self.recv_lock.acquire()
-                    self.msg = ""
-                    self.recv_lock.release()
-
-                if self.your_msg:
-                    self.chatCliSock.send(self.your_msg)
-                    if self.your_msg == 'quit()':
-                        self.connected = False
-                        break
-                    self.lock.acquire()
-                    self.your_msg = ""
-                    self.lock.release()
-            '''
 
         self.chatServSock.close() #not really used
 

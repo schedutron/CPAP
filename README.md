@@ -35,8 +35,8 @@
     * [Example 5-5: Road Signs PFA GUI Application (pfaGUI.py)][e5-5]
     * [Example 5-6: File System Traversal GUI (listdir.py)][e5-6]
     * [Example 5-7: Tix GUI Demo (animalTix.pyw)][e5-7]
-    * [Example 5-8: Pmw GUI Demo (animalPmw.pyw)][e5-8]
-    * [Example 5-9: wxPython GUI Demo (animalWx.pyw)][e5-9]
+    * [Example 5-8: Pmw GUI Demo (modified in Exercise 5-10) (animalPmw.pyw)][e5-8]
+    * [Example 5-9: wxPython GUI Demo (modified in Exercise 5-10) (animalWx.pyw)][e5-9]
     * [Example 5-10: PyGTK GUI Demo (animalGtk.pyw)][e5-10]
     * [Example 5-11: Tile/Ttk GUI Demo (animalTtk.pyw)][e5-11]
     * [Example 5-12: Tile/Ttk Python 3 GUI Demo (animalTtk3.pyw)][e5-12]
@@ -57,6 +57,7 @@
     ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-1.png)
     ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-2.png)
     ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-0.png)
+    * Exercise 5-10: Using Other GUIs (some are not working on my system, so very little modification is done.) ([animalPmw.pyw][5-10-0], [animalWx.pyw][5-10-1])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -102,3 +103,5 @@
 [5-8]: /Chap5/text_editor.py
 [5-9-1]: /Chap5/chat_clnt.py
 [5-9-2]: /Chap5/chat_clnt_GUI.py
+[5-10-0]: /Chap5/animalPmw.pyw
+[5-10-1]: /Chap5/animalWx.pyw

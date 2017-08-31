@@ -4,6 +4,7 @@ from tkinter import Button, END, Label, W
 from Pmw import initialise, ComboBox, Counter
 
 top = initialise()
+top.title("Animals")
 
 lb = Label(top, text="Animals (in pairs; min: pair, max: dozen)")
 lb.pack()

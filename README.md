@@ -53,6 +53,10 @@
     * Exercise 5-8: Simple Text Editor ([text_editor.py][5-8])
     ![Output for Exercise 5-8](/Chap5/screenshots/E5-8-0.png)
     ![Output for Exercise 5-8](/Chap5/screenshots/E5-8-1.png)
+    * Exercise 5-9: Multithreaded Chat Applications ([chat_serv.py][5-9-1], [chat_clnt_GUI.py][5-9-2])
+    ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-1.png)
+    ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-2.png)
+    ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-0.png)
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -96,3 +100,5 @@
 [5-6]: /Chap5/tkhello3.py
 [5-7]: /Chap5/file_reader.py
 [5-8]: /Chap5/text_editor.py
+[5-9-1]: /Chap5/chat_clnt.py
+[5-9-2]: /Chap5/chat_clnt_GUI.py

@@ -14,14 +14,13 @@ def accept_incoming_connections():
 
 def handle_client(client):  # Takes client socket as argument.
     name = client.recv(BUFSIZ).decode("utf8")
-    welcome = 'Welcome %s! If you ever want to quit, type {quit} to exit. Anything else is treated as your message :)' % name
+    welcome = 'Welcome %s! If you ever want to quit, type {quit} to exit.' % name
     client.send(bytes(welcome, "utf8"))
     msg = "%s has joined the chat!" % name
-    broadcast(msg)
+    broadcast(bytes(msg, "utf8"))
     clients[client] = name
 
     while True:
-        print("Waiting for message...")
         msg = client.recv(BUFSIZ)
         if msg != bytes("{quit}", "utf8"):
             broadcast(msg, name+": ")
@@ -29,12 +28,11 @@ def handle_client(client):  # Takes client socket as argument.
             client.send(bytes("{quit}", "utf8"))
             client.close()
             del clients[client]
-            broadcast("%s has left the chat." % name)
+            broadcast(bytes("%s has left the chat." % name, "utf8"))
             break
 
 
 def broadcast(msg, prefix=""):  # prefix is for name identification.
-    print("Broadcast:", msg)
     for sock in clients:
         sock.send(bytes(prefix, "utf8")+msg)
 

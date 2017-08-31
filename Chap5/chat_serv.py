@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-from socket import *
+"""Server for multithreaded (asynchronous) chat application."""
+from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 
 
 def accept_incoming_connections():
+    """Sets up handling for incoming clients."""
     while True:
-        client, client_address = server.accept()
+        client, client_address = SERVER.accept()
         print("%s:%s has connected." % client_address)
         client.send(bytes("Greetings from the cave! Now type your name and press enter!", "utf8"))
         addresses[client] = client_address
@@ -13,6 +15,8 @@ def accept_incoming_connections():
 
 
 def handle_client(client):  # Takes client socket as argument.
+    """Handles a single client connection."""
+
     name = client.recv(BUFSIZ).decode("utf8")
     welcome = 'Welcome %s! If you ever want to quit, type {quit} to exit.' % name
     client.send(bytes(welcome, "utf8"))
@@ -33,6 +37,8 @@ def handle_client(client):  # Takes client socket as argument.
 
 
 def broadcast(msg, prefix=""):  # prefix is for name identification.
+    """Broadcasts a message to all the clients."""
+
     for sock in clients:
         sock.send(bytes(prefix, "utf8")+msg)
 
@@ -42,15 +48,15 @@ PORT = 33000
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
 
-server = socket(AF_INET, SOCK_STREAM)
-server.bind(ADDR)
-server.listen(5)
+SERVER = socket(AF_INET, SOCK_STREAM)
+SERVER.bind(ADDR)
+SERVER.listen(5)
 
 clients = {}
 addresses = {}
 
 print("Waiting for connection...")
-accept_thread = Thread(target=accept_incoming_connections)
-accept_thread.start()
-accept_thread.join()
-server.close()
+ACCEPT_THREAD = Thread(target=accept_incoming_connections)
+ACCEPT_THREAD.start()
+ACCEPT_THREAD.join()
+SERVER.close()

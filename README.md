@@ -58,6 +58,7 @@
     ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-2.png)
     ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-0.png)
     * Exercise 5-10: Using Other GUIs (some are not working on my system, so very little modification is done.) ([animalPmw.pyw][5-10-0], [animalWx.pyw][5-10-1])
+    * Exercise 5-11: Using GUI Builders. I had problems in either installation, download or running of the builders (some of them maybe due to version mismatch). Thus, perhaps later. 
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

@@ -1,0 +1,27 @@
+I'm a web scraping junkie who has and continues to use Scrapy for my projects. The biggest project in which I've employed Scrapy is in an aggregator site which scrapes information of hackathons and open source conferences worldwide. There are multiple sites which provide limited information about such events, and the aim of this project is to accumulate all these individual chunks of data to create a universal site for people to access. The project is hosted at https://github.com/scrapeInfo. Although I haven't used Postgresql for this project (or any other database), I have a decent amount of experience with pgsql and databases in general from the IDBMS course I'm currently enrolled in at my college. Furthermore, I have worked with lower-level scraping libraries like BeautifulSoup and lxml (which, by the way, Scrapy uses under the hood), as would be visible in the repositories of the GitHub organisation I mentioned before.
+
+One wicked awesome thing about Scrapy is it's asynchronous nature. This enables faster testing, along with more rapid scraping. Speaking of this parallel nature, I have worked with lower-level multithreading in Python (see my popular thread synchronisation article on my blog at https://medium.com/@arichduvet) which, in my opinion, provides me better insight as to how Scrapy is functioning behind the hood.
+
+Apart from these, I have worked with fetching social media data from Twitter, which provides a different perspective towards getting data from the Internet. Moreover, I also answer web scraping questions on Stack Overflow: https://stackoverflow.com/users/5707563/sam-chats
+
+Thus, I feel the aforementioned qualifications make me a potential and competent candidate for this role.
+
+
+
+
+One of the problems I encountered while scraping data about hackathons and conferences was pagination. When I first encountered a pagination-loaded web-page, I was really confused about how to scrape pagination-ed content. It took me a while to figure out how to pass page indices as arguments and stop until a 404 error (or something similar) arrives. Since learning this, I've used this techniques in various scrapers. Also, I think I don't have a way with paginations - while fetching data of followers of celebrities (who have potentially millions of followers) from Twitter, I had trouble in getting the data of all the users. This happened because Twitter's REST API doesn't provide information of all the followers in one go, rather it uses pagination via "cursors". After learning about cursors, I simply iterated over them to get the complete data, but again there was one catch - API requests limit. Finally I got the extraction code working by iterating with time delays, and IP rotation for some specific data.
+
+Apart from this, the most annoying-ever and perhaps silly bug (not related to web scraping) I've faced came in aligning the output of a CLI program. It was too damn frustrating - I spent days over it, consistently getting inconsistent output, and finally asked it on Stack Overflow. Finally, I discovered that the error was all about monospaced fonts which the command prompt should've been using and was not at all related to how I'd programmed the display function for the output! 😅As soon as the font was fixed, the output got beautifully aligned and that was a great moment of relief for me.
+
+
+
+
+I'm proud of the Twitter bot I've built which powers my Twitter handle - https://twitter.com/arichduvet
+This bot does a simple thing - it searches for interesting people and tweets based on keywords then follows these people and retweets and likes their tweets. This has earned me way more followers than I had previously and that has made me proud :). Apart from this bot, I had made another bot which used to troll people who spread hate on Twitter, but sadly, it got banned :(
+
+Another creation of mine which made me perhaps more proud is S-Koo-L: a school management system I wrote in Python which solved the problem of substitution teacher assignment in an automated manner, among other things. The project earned me a good reputation at school😊. It is hosted at https://github.com/schedutron/S-Koo-L
+
+
+
+
+I'm excited about deep learning. It has proven to be of such a great utility in so many fields. The art and craft of deep learning has a sort of mystique associated with it - the accuracy with which neural networks give correct solutions to real world problems is very tantalising for me. I'm very, very excited about deep learning and have started taking introductory courses in this field.

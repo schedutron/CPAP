@@ -21,7 +21,7 @@ NAMELEN = 16
 tformat = lambda s: str(s).title().ljust(COLSIZ)
 cformat = lambda s: str(s).upper().ljust(COLSIZ)
 
-for setup():
+def setup():
     return RDBMSs[scanf(
     '''
     Choose a database system:
@@ -48,7 +48,7 @@ def connect(db, DBNAME):
         DB_EXC = sqlite3
         if not os.path.isdir(dbDir):
             os.mkdir(dbDir)
-        cxn = sqlite.connect(os.path.join(dbDir, DBNAME))
+        cxn = sqlite3.connect(os.path.join(dbDir, DBNAME))
     
     elif db == 'mysql':
         try:
@@ -154,7 +154,7 @@ def update(cur):
 
 def delete(cur):
     rm = rand(1, 5)
-    cur.execute("DELETE FROM users WHERE projid=%d", %rm)
+    cur.execute("DELETE FROM users WHERE projid=%d" % rm)
     return rm, getRC(cur)
 
 
@@ -166,3 +166,38 @@ def dbDump(cur):
 
 
 def main():
+    db = setup()
+    printf("*** Connect to %r database" % db)
+    cxn = connect(db, DBNAME)
+    if not cxn:
+        printf("ERROR: %r not supported or unreachable, exit" % db)
+        return
+    cur = cxn.cursor()
+
+    printf('\n*** Creating users table')
+    create(cur)
+
+    printf("\n*** Inserting names into table")
+    insert(cur, db)
+    dbDump(cur)
+
+    printf("\n*** Randomly moving folks")
+    fr, to, num = update(cur)
+    printf("\t(%d users moved) from (%d) to (%d)" % (num, fr, to))
+    dbDump(cur)
+
+    printf("\n*** Randomly choosing group")
+    rm, num = delete(cur)
+    printf('\t(group #%d; %d users removed)' % (rm, num))
+    dbDump(cur)
+
+    printf("\n*** Dropping users table")
+    drop(cur)
+    printf("\n*** Close cxns")
+    cur.close()
+    cxn.commit()
+    cxn.close()
+
+
+if __name__ == '__main__':
+    main()

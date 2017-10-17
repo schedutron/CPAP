@@ -3,6 +3,8 @@ from distutils.log import warn as printf
 import os
 from random import randrange as rand
 
+from password import PASSWORD
+
 if isinstance(__builtins__, dict) and 'raw_input' in __builtins__:
     scanf = raw_input
 elif hasattr(__builtins__, 'raw_input'):
@@ -74,6 +76,7 @@ def connect(db, DBNAME):
                     cxn = mysql.connector.Connect(**{
                         'database': DBNAME,
                         'user': DBUSER,
+                        'password': PASSWORD,
                     })
                 except DB_EXC.InterfaceError:
                     return None

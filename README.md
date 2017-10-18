@@ -59,6 +59,12 @@
     ![Output for Exercise 5-9](/Chap5/screenshots/E5-9-0.png)
     * Exercise 5-10: Using Other GUIs (some are not working on my system, so very little modification is done.) ([animalPmw.pyw][5-10-0], [animalWx.pyw][5-10-1])
     * Exercise 5-11: Using GUI Builders. I had problems in either installation, download or running of the builders (some of them maybe due to version mismatch). Thus, perhaps later.
+***
+
+* [Chapter 6: Database Programming][chap6]
+    * [Example 6-1: Database Adapter Example][e6-1]
+    * [Example 6-2: SQLAlchemy ORM Example][e6-2]
+    * [Example 6-3: SQLObject ORM Example][e6-3]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -106,3 +112,8 @@
 [5-9-2]: /Chap5/chat_clnt_GUI.py
 [5-10-0]: /Chap5/animalPmw.pyw
 [5-10-1]: /Chap5/animalWx.pyw
+
+[chap6]: /Chap6
+[e6-1]: /Chap6/ushuffle_dbU.py
+[e6-2]: /Chap6/ushuffle_sad.py
+[e6-3]: /Chap6/ushuffle_so.py

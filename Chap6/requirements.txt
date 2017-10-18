@@ -1,0 +1,3 @@
+SQLAlchemy==1.1.14
+SQLObject==3.4.0
+mysql-connector==2.1.6

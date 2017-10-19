@@ -65,6 +65,7 @@
     * [Example 6-1: Database Adapter Example][e6-1]
     * [Example 6-2: SQLAlchemy ORM Example][e6-2]
     * [Example 6-3: SQLObject ORM Example][e6-3]
+    * [Example 6-4: MongoDB Example][e6-4]
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -117,3 +118,4 @@
 [e6-1]: /Chap6/ushuffle_dbU.py
 [e6-2]: /Chap6/ushuffle_sad.py
 [e6-3]: /Chap6/ushuffle_so.py
+[e6-4]: /Chap6/ushuffle_mongo.py

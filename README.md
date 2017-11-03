@@ -66,6 +66,8 @@
     * [Example 6-2: SQLAlchemy ORM Example][e6-2]
     * [Example 6-3: SQLObject ORM Example][e6-3]
     * [Example 6-4: MongoDB Example][e6-4]
+    * ***
+    * Exercise 6-1: Database API ([db_api.md][6-1])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -119,3 +121,4 @@
 [e6-2]: /Chap6/ushuffle_sad.py
 [e6-3]: /Chap6/ushuffle_so.py
 [e6-4]: /Chap6/ushuffle_mongo.py
+[6-1]: /Chap6/db_api.md

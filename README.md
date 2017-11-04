@@ -69,6 +69,7 @@
     * ***
     * Exercise 6-1: Database API ([db_api.md][6-1])
     * Exercise 6-2: Database API ([paramstyle_differences.md][6-2])
+    * Exercise 6-3: Cursor Objects ([execute_differnces.md][6-3])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -124,3 +125,4 @@
 [e6-4]: /Chap6/ushuffle_mongo.py
 [6-1]: /Chap6/db_api.md
 [6-2]: /Chap6/paramstyle_differences.md
+[6-3]: /Chap6/execute_differences.md

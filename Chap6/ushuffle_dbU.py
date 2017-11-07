@@ -153,13 +153,22 @@ getRC = lambda cur: cur.rowcount if hasattr(cur, 'rowcount') else -1
 
 def update(cur):
     fr = rand(1, 5)
-    to = rand(1, 5)
+    to = fr
+    while to == fr:
+        to = rand(1, 5)
     cur.execute("UPDATE users SET projid=%d WHERE projid=%d" % (to, fr))
     return fr, to, getRC(cur)
 
 
 def delete(cur):
-    rm = rand(1, 5)
+    rm = -1
+    exists = False  # To see whether users with id 'rm' exist in the db.
+    while not exists:
+        cur.execute("SELECT COUNT(*) FROM users WHERE projid=%d" % rm)
+        if cur.fetchall()[0][0] != 0:
+            exists = True
+        else:
+            rm = rand(1, 5)
     cur.execute("DELETE FROM users WHERE projid=%d" % rm)
     return rm, getRC(cur)
 

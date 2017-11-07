@@ -83,6 +83,7 @@
     * Exercise 6-12: Debugging & Refactoring ([ushuffle_dbU.py][6-12])
     * Exercise 6-13: Stock Portfolio Class (not implemented as it depends on Exercise 6-11, shall do after sufficient learning)
     * Exercise 6-14: To be done later; same reason as above.
+    * Exercise 6-15: Supporting Different RDBMSs ([ushuffle_sad.py][6-15])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -133,7 +134,7 @@
 
 [chap6]: /Chap6
 [e6-1]: https://github.com/schedutron/CPAP/blob/930517d2e7a746145162884b6f7c5262f8480c43/Chap6/ushuffle_dbU.py
-[e6-2]: /Chap6/ushuffle_sad.py
+[e6-2]: https://github.com/schedutron/CPAP/blob/8a3659b0b8576f4dffc4a874703d2f982163abbc/Chap6/ushuffle_sad.py
 [e6-3]: /Chap6/ushuffle_so.py
 [e6-4]: /Chap6/ushuffle_mongo.py
 [6-1]: /Chap6/db_api.md
@@ -147,3 +148,4 @@
 [6-8-2]: /Chap6/output.html
 [6-10]: /Chap6/db_GUI.py
 [6-12]: /Chap6/ushuffle_dbU.py
+[6-15]: /Chap6/ushuffle_sad.py

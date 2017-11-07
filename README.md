@@ -79,6 +79,8 @@
     * Exercise 6-9: Web Programming and Databases (not implemented yet as I don't know much about web programming as of this writing)
     * Exercise 6-10: GUI Programming and Databases ([db_GUI.py][6-10])
     ![Partial Output for Exercise 6-10](/Chap6/screenshots/E6-10.png)
+    * Exercise 6-11: Stock Portfolio Class (not implemented yet as I don't know much about web programming as of this writing)
+    * Exercise 6-12: Debugging & Refactoring
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

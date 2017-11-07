@@ -103,7 +103,10 @@ def connect(db, DBNAME):
     return cxn
 
 
-def create(cur):
+def create(cur, depth=0):  # depth represents the recursion level.
+    if depth == 3:
+        print("Unable to create the users table. Attempted 3 times.")
+        return depth
     try:
         cur.execute('''
         CREATE TABLE users(
@@ -113,10 +116,10 @@ def create(cur):
             ''' % NAMELEN)
     except DB_EXC.OperationalError:
         drop(cur)
-        create(cur)
+        return create(cur, depth+1)  # For exit status.
+        
 
-
-drop = lambda cur: cur.execute('DROP TABLE users')
+drop = lambda cur: cur.execute('DROP TABLE IF EXISTS users')
 
 NAMES = (
     ('aaron', 8312), ('angela', 7603), ('dave', 7306),
@@ -178,7 +181,8 @@ def main():
     cur = cxn.cursor()
 
     printf('\n*** Creating users table')
-    create(cur)
+    if create(cur) == 3:
+        return None
 
     printf("\n*** Inserting names into table")
     insert(cur, db)

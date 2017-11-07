@@ -73,6 +73,7 @@
     * Exercise 6-4: Cursor Objects ([fetch_differences.md][6-4])
     * Exercise 6-5: Database Adapters ([pgsql_features.md][6-5])
     * Exercise 6-6: Type Objects ([psql_sample.py][6-6])
+    * Exercise 6-7: Refactoring ([ushuffle_dbU.py][6-7])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -132,3 +133,4 @@
 [6-4]: /Chap6/fetch_differences.md
 [6-5]: /Chap6/pgsql_features.md
 [6-6]: /Chap6/psql_sample.py
+[6-7]: /Chap6/ushuffle_dbU.py

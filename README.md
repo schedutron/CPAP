@@ -82,6 +82,7 @@
     * Exercise 6-11: Stock Portfolio Class (not implemented yet as I don't know much about web programming as of this writing)
     * Exercise 6-12: Debugging & Refactoring ([ushuffle_dbU.py][6-12])
     * Exercise 6-13: Stock Portfolio Class (not implemented as it depends on Exercise 6-11, shall do after sufficient learning)
+    * Exercise 6-14: To be done later; same reason as above.
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

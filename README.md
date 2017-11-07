@@ -71,6 +71,7 @@
     * Exercise 6-2: Database API ([paramstyle_differences.md][6-2])
     * Exercise 6-3: Cursor Objects ([execute_differnces.md][6-3])
     * Exercise 6-4: Cursor Objects ([fetch_differences.md][6-4])
+    * Exercise 6-5: Database Adapters ([pgsql_features.md][6-5])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -128,3 +129,4 @@
 [6-2]: /Chap6/paramstyle_differences.md
 [6-3]: /Chap6/execute_differences.md
 [6-4]: /Chap6/fetch_differences.md
+[6-5]: /Chap6/pgsql_features.md

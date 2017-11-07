@@ -14,7 +14,7 @@ else:
 
 COLSIZ = 10
 FIELDS = ('login', 'userid', 'projid')
-RDBMSs = {'s': 'sqlite', 'm': 'mysql', 'g': 'gadfly'}
+RDBMSs = {'s': 'sqlite', 'm': 'mysql', 'g': 'gadfly', 'p': 'postgresql'}
 DBNAME = 'test'
 DBUSER = 'root'
 DB_EXC = None

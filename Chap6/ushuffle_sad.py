@@ -7,11 +7,13 @@ from sqlalchemy import Column, Integer, String, create_engine, exc, orm
 from sqlalchemy.ext.declarative import declarative_base
 
 from password import PASSWORD
-from ushuffle_dbU import DBNAME, NAMELEN, randName, FIELDS, tformat, cformat, setup
+from ushuffle_dbU import DBNAME, NAMELEN, randName, FIELDS, tformat, cformat,\
+RDBMSs, scanf
 
 DSNs = {
     'mysql': 'mysql://root@localhost/%s/%s' % (DBNAME, PASSWORD),
     'sqlite': 'sqlite:///:memory:',
+    'postgresql': 'postgresql+psycopg2://binaryBoy:%s@localhost/%s' % (PASSWORD, DBNAME)
 }
 
 Base = declarative_base()
@@ -84,6 +86,20 @@ class SQLAlchemyTest(object):
     def finish(self):
         self.ses.connection().close()
     
+
+def setup():
+    return RDBMSs[scanf(
+    '''
+    Choose a database system:
+
+    (M)ySQL
+    (G)adfly
+    (S)QLite
+    (P)ostgreSQL
+
+    Enter choice: ''').strip().lower()[0]]
+
+
 def main():
     printf("*** Connect to %r database" % DBNAME)
     db = setup()

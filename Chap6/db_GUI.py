@@ -25,7 +25,7 @@ def db_dump(cur, data_frame):
     columns = []
     for attribute in FIELDS:
         col = tkinter.Frame(title_frame)
-        header = tkinter.Label(col, text=attribute)
+        header = tkinter.Label(col, text=attribute.upper())
         header.pack()
         col.pack(side=tkinter.RIGHT)
         columns.append(col)

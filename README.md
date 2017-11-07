@@ -75,8 +75,10 @@
     * Exercise 6-6: Type Objects ([psql_sample.py][6-6])
     * Exercise 6-7: Refactoring ([ushuffle_dbU.py][6-7])
     * Exercise 6-8: Database and HTML ([db_to_html.py][6-8-1], [output.html][6-8-2])
+    ![Output for Exercise 6-8](/Chap6/screenshots/E6-8.png)
     * Exercise 6-9: Web Programming and Databases (not implemented yet as I don't know much about web programming as of this writing)
     * Exercise 6-10: GUI Programming and Databases ([db_GUI.py][6-10])
+    ![Partial Output for Exercise 6-10](/Chap6/screenshots/E6-10.png)
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

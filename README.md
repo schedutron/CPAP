@@ -80,7 +80,8 @@
     * Exercise 6-10: GUI Programming and Databases ([db_GUI.py][6-10])
     ![Partial Output for Exercise 6-10](/Chap6/screenshots/E6-10.png)
     * Exercise 6-11: Stock Portfolio Class (not implemented yet as I don't know much about web programming as of this writing)
-    * Exercise 6-12: Debugging & Refactoring
+    * Exercise 6-12: Debugging & Refactoring ([ushuffle_dbU.py][6-12])
+    * Exercise 6-13: Stock Portfolio Class (not implemented as it depends on Exercise 6-11, shall do after sufficient learning)
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -140,7 +141,8 @@
 [6-4]: /Chap6/fetch_differences.md
 [6-5]: /Chap6/pgsql_features.md
 [6-6]: /Chap6/psql_sample.py
-[6-7]: /Chap6/ushuffle_dbU.py
+[6-7]: https://github.com/schedutron/CPAP/blob/e140858c63b8aef1be5c97daf55db05d3825abd2/Chap6/ushuffle_dbU.py
 [6-8-1]: /Chap6/db_to_html.py
 [6-8-2]: /Chap6/output.html
 [6-10]: /Chap6/db_GUI.py
+[6-12]: /Chap6/ushuffle_dbU.py

@@ -123,7 +123,7 @@
 [5-10-1]: /Chap5/animalWx.pyw
 
 [chap6]: /Chap6
-[e6-1]: /Chap6/ushuffle_dbU.py
+[e6-1]: https://github.com/schedutron/CPAP/blob/930517d2e7a746145162884b6f7c5262f8480c43/Chap6/ushuffle_dbU.py
 [e6-2]: /Chap6/ushuffle_sad.py
 [e6-3]: /Chap6/ushuffle_so.py
 [e6-4]: /Chap6/ushuffle_mongo.py

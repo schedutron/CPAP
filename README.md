@@ -74,6 +74,7 @@
     * Exercise 6-5: Database Adapters ([pgsql_features.md][6-5])
     * Exercise 6-6: Type Objects ([psql_sample.py][6-6])
     * Exercise 6-7: Refactoring ([ushuffle_dbU.py][6-7])
+    * Exercise 6-8: Database and HTML ([db_to_html.py][6-8-1], [output.html][6-8-2])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -134,3 +135,5 @@
 [6-5]: /Chap6/pgsql_features.md
 [6-6]: /Chap6/psql_sample.py
 [6-7]: /Chap6/ushuffle_dbU.py
+[6-8-1]: /Chap6/db_to_html.py
+[6-8-2]: /Chap6/output.html

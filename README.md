@@ -85,6 +85,7 @@
     * Exercise 6-14: To be done later; same reason as above.
     * Exercise 6-15: Supporting Different RDBMSs ([ushuffle_sad.py][6-15])
     * Exercise 6-16: Importing and Python ([builtins_explanation.md][6-16])
+    * Exercise 6-17: Porting to Python3 (['warn\_vs\_print.md][6-17])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -151,3 +152,4 @@
 [6-12]: /Chap6/ushuffle_dbU.py
 [6-15]: /Chap6/ushuffle_sad.py
 [6-16]: /Chap6/builtins_explanation.md
+[6-17]: /Chap6/warn_vs_print.md

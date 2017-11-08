@@ -84,6 +84,7 @@
     * Exercise 6-13: Stock Portfolio Class (not implemented as it depends on Exercise 6-11, shall do after sufficient learning)
     * Exercise 6-14: To be done later; same reason as above.
     * Exercise 6-15: Supporting Different RDBMSs ([ushuffle_sad.py][6-15])
+    * Exercise 6-16: Importing and Python ([builtins_explanation.md][6-16])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -149,3 +150,4 @@
 [6-10]: /Chap6/db_GUI.py
 [6-12]: /Chap6/ushuffle_dbU.py
 [6-15]: /Chap6/ushuffle_sad.py
+[6-16]: /Chap6/builtins_explanation.md

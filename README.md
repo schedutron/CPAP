@@ -153,7 +153,7 @@
 [6-8-2]: /Chap6/output.html
 [6-10]: /Chap6/db_GUI.py
 [6-12]: /Chap6/ushuffle_dbU.py
-[6-15]: /Chap6/ushuffle_sad.py
+[6-15]: https://github.com/schedutron/CPAP/blob/ba0bdfe1de9afc012aff6b89bf5c61c6348992a9/Chap6/ushuffle_sad.py
 [6-16]: /Chap6/builtins_explanation.md
 [6-17]: /Chap6/warn_vs_print.md
 [6-18]: /Chap6/print_vs_print_function.md

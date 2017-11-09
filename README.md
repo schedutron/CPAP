@@ -93,6 +93,7 @@
     * Exercise 6-22: SQLAlchemy ([ushuffle_sad.py][6-22]) The query `update()` method was faster than the procedure we used before; I used `time` instead of `timeit` because of its convenience. The `update()` method took about 0.0026s, whereas the previous method took about 0.004s on my system.
     * Exercise 6-23: SQLAlchemy ([ushuffle_sad.py][6-23]) Again, the query `delete()` method was faster than the previous procedure. It took about 0.001s to run, whereas the previous procedure took about 0.003s to run on my system. And again, `time` was used instead of `timeit`.
     * Exercise 6-24: SQLAlchemy \(Kinda\) ([ushuffle_sae.py][6-24])
+    * Exercise 6-25: Django Data Models: Shall do later, don't know much Django as of this writing.
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

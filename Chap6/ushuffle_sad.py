@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import time, datetime
 from distutils.log import warn as printf
 from os.path import dirname
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT  # Okay only in Python3 :(

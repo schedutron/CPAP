@@ -97,6 +97,7 @@
     * Exercise 6-26: Storm ORM - tried installing storm, in vain
     * Exercise 6-27: NoSQL ([for_nosql.md][6-27])
     * Exercise 6-28: NoSQL ([nosql_types.md][6-28])
+    * Exercise 6-29: CouchDB ([ushuffle_couch.py][6-29])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -174,3 +175,4 @@
 [6-24]: /Chap6/ushuffle_sae.py
 [6-27]: /Chap6/for_nosql.md
 [6-28]: /Chap6/nosql_types.md
+[6-29]: /Chap6/ushuffle_couch.py

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import time
 from distutils.log import warn as printf
 from os.path import dirname
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT  # Okay only in Python3 :(
@@ -137,10 +136,7 @@ def main():
     orm.dbDump()
 
     printf("\n*** Randomly delete group")
-    start_time = time.time()
     rm, num = orm.delete()
-    end_time = time.time()
-    print("Time taken: %s" % (end_time - start_time))
     printf("\t(group #%d; %d users removed)" % (rm, num))
     orm.dbDump()
 

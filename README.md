@@ -95,6 +95,7 @@
     * Exercise 6-24: SQLAlchemy \(Kinda\) ([ushuffle_sae.py][6-24])
     * Exercise 6-25: Django Data Models: Shall do later, don't know much Django as of this writing.
     * Exercise 6-26: Storm ORM - tried installing storm, in vain
+    * Exercise 6-27: NoSQL ([for_nosql.md][6-27])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -170,3 +171,4 @@
 [6-22]: https://github.com/schedutron/CPAP/blob/5dcd8dd71add11a7a369d49c2413963ec8c1057d/Chap6/ushuffle_sad.py
 [6-23]: /Chap6/ushuffle_sad.py
 [6-24]: /Chap6/ushuffle_sae.py
+[6-27]: /Chap6/for_nosql.md

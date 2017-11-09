@@ -92,6 +92,7 @@
     * Exercise 6-21: SQLAlchemy (a: [ushuffle_sad.py][6-21-a], b: [ushuffle_sad.py][6-21-b])
     * Exercise 6-22: SQLAlchemy ([ushuffle_sad.py][6-22]) The query `update()` method was faster than the procedure we used before; I used `time` instead of `timeit` because of its convenience. The `update()` method took about 0.0026s, whereas the previous method took about 0.004s on my system.
     * Exercise 6-23: SQLAlchemy ([ushuffle_sad.py][6-23]) Again, the query `delete()` method was faster than the previous procedure. It took about 0.001s to run, whereas the previous procedure took about 0.003s to run on my system. And again, `time` was used instead of `timeit`.
+    * Exercise 6-24: SQLAlchemy \(Kinda\) ([ushuffle_sae.py][6-24])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -166,3 +167,4 @@
 [6-21-b]: https://github.com/schedutron/CPAP/blob/845838cc4f24710c10127f6043d6342077979d46/Chap6/ushuffle_sad.py
 [6-22]: https://github.com/schedutron/CPAP/blob/5dcd8dd71add11a7a369d49c2413963ec8c1057d/Chap6/ushuffle_sad.py
 [6-23]: /Chap6/ushuffle_sad.py
+[6-24]: /Chap6/ushuffle_sae.py

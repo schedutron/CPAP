@@ -2,6 +2,7 @@
 
 from distutils.log import warn as printf
 from os.path import dirname
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT  # Okay only in Python3 :(
 from random import randrange as rand
 from sqlalchemy import Column, Integer, String, create_engine, exc, orm
 from sqlalchemy.ext.declarative import declarative_base
@@ -37,7 +38,14 @@ class SQLAlchemyTest(object):
             eng.connect()
         except exc.OperationalError:
             eng = create_engine(dirname(dsn))
-            eng.execute('CREATE DATABASE %s' % DBNAME).close()
+            conn = eng.connect()
+            try:
+                conn.connection.connection.set_isolation_level(0)
+                conn.execute('CREATE DATABASE %s' % DBNAME).close()
+                conn.connection.connection.set_isolation_level(1)
+            except exc.OperationalError:
+                raise RuntimeError()
+            
             eng = create_engine(dsn)
         
         Session = orm.sessionmaker(bind=eng)

@@ -88,6 +88,7 @@
     * Exercise 6-17: Porting to Python 3 ([warn\_vs\_print.md][6-17])
     * Exercise 6-18: Porting to Python 3 ([print\_vs\_print_function.md][6-18])
     * Exercise 6-19: Python Language ([towards_universal.md][6-19])
+    * Exercise 6-20: Exceptions: added functionality, but unable to test as of this writing ([ushuffle_sad.py][6-20])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -157,3 +158,4 @@
 [6-17]: /Chap6/warn_vs_print.md
 [6-18]: /Chap6/print_vs_print_function.md
 [6-19]: /Chap6/towards_universal.md
+[6-20]: /Chap6/ushuffle_sad.py

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import time, datetime
 from distutils.log import warn as printf
 from os.path import dirname
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT  # Okay only in Python3 :(
@@ -61,14 +62,14 @@ class SQLAlchemyTest(object):
     def update(self):
         fr = rand(1, 5)
         to = rand(1, 5)
-        i = -1
         users = self.ses.query(
             Users
-        ).filter_by(projid=fr).all()
-        for i, user in enumerate(users):
-            user.projid = to
+        ).filter_by(projid=fr)
+        i = len(users.all())
+        users.update({'projid':to})
+        
         self.ses.commit()
-        return fr, to, i+1
+        return fr, to, i
 
     def delete(self):
         rm = rand(1, 5)
@@ -136,6 +137,7 @@ def main():
 
     printf("\n*** Move users to a random group")
     fr, to, num = orm.update()
+    
     printf("\t(%d users moved) from (%d) to (%d)" % (num, fr, to))
     orm.dbDump()
 

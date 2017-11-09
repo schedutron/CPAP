@@ -86,7 +86,7 @@ class SQLAlchemyTest(object):
         if not newest5:
             users = self.ses.query(Users).all()
         else:
-            users = self.ses.query(Users).order_by(Users.userid.desc()).limit(5)  # I don't see any need of offset here.
+            users = self.ses.query(Users).order_by(Users.userid.desc())[:5]  # I don't see any need of offset here.
         for user in users:
             printf(user)
         self.ses.commit()

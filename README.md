@@ -89,7 +89,7 @@
     * Exercise 6-18: Porting to Python 3 ([print\_vs\_print_function.md][6-18])
     * Exercise 6-19: Python Language ([towards_universal.md][6-19])
     * Exercise 6-20: Exceptions: added functionality, but unable to test as of this writing ([ushuffle_sad.py][6-20])
-    * Exercise 6-21: SQLAlchemy (a: [ushuffle_sad.py][6-20-a])
+    * Exercise 6-21: SQLAlchemy (a: [ushuffle_sad.py][6-21-a], b: [ushuffle_sad.py][6-21-b])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -160,4 +160,5 @@
 [6-18]: /Chap6/print_vs_print_function.md
 [6-19]: /Chap6/towards_universal.md
 [6-20]: https://github.com/schedutron/CPAP/blob/fe49905c4663e11ea6598bf7963efde20559af4b/Chap6/ushuffle_sad.py
-[6-20-a]: /Chap6/ushuffle_sad.py
+[6-21-a]: https://github.com/schedutron/CPAP/blob/7483748e9f03b235ca0dc0cc4e9cb8ee85202f72/Chap6/ushuffle_sad.py
+[6-21-b]: /Chap6/ushuffle_sad.py

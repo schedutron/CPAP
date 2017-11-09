@@ -94,6 +94,7 @@
     * Exercise 6-23: SQLAlchemy ([ushuffle_sad.py][6-23]) Again, the query `delete()` method was faster than the previous procedure. It took about 0.001s to run, whereas the previous procedure took about 0.003s to run on my system. And again, `time` was used instead of `timeit`.
     * Exercise 6-24: SQLAlchemy \(Kinda\) ([ushuffle_sae.py][6-24])
     * Exercise 6-25: Django Data Models: Shall do later, don't know much Django as of this writing.
+    * Exercise 6-26: Storm ORM - tried installing storm, in vain
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

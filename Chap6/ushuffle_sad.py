@@ -81,9 +81,12 @@ class SQLAlchemyTest(object):
         self.ses.commit()
         return rm, i+1
 
-    def dbDump(self):
+    def dbDump(self, newest5=False):
         printf("\n%s" % ''.join(map(cformat, FIELDS)))
-        users = self.ses.query(Users).all()
+        if not newest5:
+            users = self.ses.query(Users).all()
+        else:
+            users = self.ses.query(Users).order_by(Users.userid.desc()).limit(5)  # I don't see any need of offset here.
         for user in users:
             printf(user)
         self.ses.commit()
@@ -128,6 +131,8 @@ def main():
     printf("\n*** Insert names into table")
     orm.insert()
     orm.dbDump()
+    print("\n*** Top 5 newest employees")
+    orm.dbDump(newest5=True)
 
     printf("\n*** Move users to a random group")
     fr, to, num = orm.update()

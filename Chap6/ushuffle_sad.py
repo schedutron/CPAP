@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import time
 from distutils.log import warn as printf
 from os.path import dirname
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT  # Okay only in Python3 :(
@@ -61,25 +62,20 @@ class SQLAlchemyTest(object):
     def update(self):
         fr = rand(1, 5)
         to = rand(1, 5)
-        users = self.ses.query(
+        i = self.ses.query(
             Users
-        ).filter_by(projid=fr)
-        i = len(users.all())
-        users.update({'projid':to})
+        ).filter_by(projid=fr).update({'projid':to})
         
         self.ses.commit()
         return fr, to, i
 
     def delete(self):
         rm = rand(1, 5)
-        i = - 1
-        users = self.ses.query(
+        i = self.ses.query(
             Users
-        ).filter_by(projid=rm).all()
-        for i, user in enumerate(users):
-            self.ses.delete(user)
+        ).filter_by(projid=rm).delete()
         self.ses.commit()
-        return rm, i+1
+        return rm, i
 
     def dbDump(self, newest5=False):
         printf("\n%s" % ''.join(map(cformat, FIELDS)))
@@ -141,7 +137,10 @@ def main():
     orm.dbDump()
 
     printf("\n*** Randomly delete group")
+    start_time = time.time()
     rm, num = orm.delete()
+    end_time = time.time()
+    print("Time taken: %s" % (end_time - start_time))
     printf("\t(group #%d; %d users removed)" % (rm, num))
     orm.dbDump()
 

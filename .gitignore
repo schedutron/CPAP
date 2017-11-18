@@ -1,10 +1,7 @@
 secret.pyc
 screenShot.png
-.DS_Store
 studentdb.pyc
 __pycache__/
-.DS_Store
-.DS_Store
 Screen Shot 2017-06-22 at 1.33.06 PM.png
 .DS_Store
 message
@@ -26,3 +23,4 @@ Chap6/sqlite_test/
 learn
 Chap6/password.pyc
 Chap6/*.pyc
+Chap8/build

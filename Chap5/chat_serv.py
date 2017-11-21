@@ -42,6 +42,9 @@ def broadcast(msg, prefix=""):  # prefix is for name identification.
     for sock in clients:
         sock.send(bytes(prefix, "utf8")+msg)
 
+        
+clients = {}
+addresses = {}
 
 HOST = ''
 PORT = 33000
@@ -50,13 +53,11 @@ ADDR = (HOST, PORT)
 
 SERVER = socket(AF_INET, SOCK_STREAM)
 SERVER.bind(ADDR)
-SERVER.listen(5)
 
-clients = {}
-addresses = {}
-
-print("Waiting for connection...")
-ACCEPT_THREAD = Thread(target=accept_incoming_connections)
-ACCEPT_THREAD.start()
-ACCEPT_THREAD.join()
-SERVER.close()
+if __name__ == "__main__":
+    SERVER.listen(5)
+    print("Waiting for connection...")
+    ACCEPT_THREAD = Thread(target=accept_incoming_connections)
+    ACCEPT_THREAD.start()
+    ACCEPT_THREAD.join()
+    SERVER.close()

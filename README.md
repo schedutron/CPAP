@@ -109,6 +109,7 @@
     * Example 8-3: Python-Wrapped Version of C Library ([Extest2.c][e8-3])
     * ***
     * Exercise 8-1: Extending Python ([extension_advantages.md][8-1])
+    * Exercise 8-2: Extending Python ([extension_disadvantages][8-2])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -193,3 +194,4 @@
 [e8-2]: /Chap8/setup.py
 [e8-3]: /Chap8/Extest2.c
 [8-1]: /Chap8/extension_advantages.md
+[8-2]: /Chap8/extension_disadvantages.md

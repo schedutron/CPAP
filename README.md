@@ -110,6 +110,7 @@
     * ***
     * Exercise 8-1: Extending Python ([extension_advantages.md][8-1])
     * Exercise 8-2: Extending Python ([extension_disadvantages][8-2])
+    * Exercise 8-3: Writing Extensions ([upper.c][8-3-i], [upper_setup.py][8-3-ii])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -195,3 +196,5 @@
 [e8-3]: /Chap8/Extest2.c
 [8-1]: /Chap8/extension_advantages.md
 [8-2]: /Chap8/extension_disadvantages.md
+[8-3-i]: /Chap8/upper.c
+[8-3-ii]: /Chap8/upper_setup.py

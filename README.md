@@ -98,6 +98,17 @@
     * Exercise 6-27: NoSQL ([for_nosql.md][6-27])
     * Exercise 6-28: NoSQL ([nosql_types.md][6-28])
     * Exercise 6-29: CouchDB ([ushuffle_couch.py][6-29])
+***
+
+* Chapter 7: Programming Microsoft Office (optional; will do later)
+***
+
+* [Chapter 8: Extending Python][chap8]
+    * Example 8-1: Pure C Version of Library ([Extest1.c][e8-1])
+    * Example 8-2: The Build Script ([setup.py][e8-2])
+    * Example 8-3: Python-Wrapped Version of C Library ([Extest2.c][e8-3])
+    * ***
+    * Exercise 8-1: Extending Python ([extension_advantages.md][8-1])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -176,3 +187,9 @@
 [6-27]: /Chap6/for_nosql.md
 [6-28]: /Chap6/nosql_types.md
 [6-29]: /Chap6/ushuffle_couch.py
+
+[chap8]: /Chap8
+[e8-1]: /Chap8/Extest1.c
+[e8-2]: /Chap8/setup.py
+[e8-3]: /Chap8/Extest2.c
+[8-1]: /Chap8/extension_advantages.md

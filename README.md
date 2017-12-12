@@ -115,6 +115,7 @@
     * Exercise 8-5: Wrapping C Code ([helloWorld.c][8-5-i], [hello_setup.py][8-5-ii])
     * Exercise 8-6: Writing Extensions - not done as I haven't read either of the mentioned books
     * Exercise 8-7: Extending vs. Embedding ([extending_vs_embedding.md][8-7])
+    * Exercise 8-8: Not Writing Extensions ([helloworld.pyx][8-8-i], [cy_setup.py][8-8-ii])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -204,6 +205,8 @@
 [8-3-ii]: /Chap8/upper_setup.py
 [8-4-i]: /Chap8/chat.c
 [8-4-ii]: /Chap8/chat_setup.py
-[8-5-i]: /Chap8/helloWorld.c
+[8-5-i]: https://github.com/schedutron/CPAP/blob/edaf04b73f4de39547fe76b26cb5859d5af07c52/Chap8/helloWorld.c
 [8-5-ii]: /Chap8/hello_setup.py
 [8-7]: /Chap8/extending_vs_embedding.md
+[8-8-i]: /Chap8/helloworld.pyx
+[8-8-ii]: /Chap8/cy_setup.py

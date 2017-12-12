@@ -111,7 +111,7 @@
     * Exercise 8-1: Extending Python ([extension_advantages.md][8-1])
     * Exercise 8-2: Extending Python ([extension_disadvantages][8-2])
     * Exercise 8-3: Writing Extensions ([upper.c][8-3-i], [upper_setup.py][8-3-ii])
-    * Exercise 8-4: Porting from Python to C (implemented timestamp server from Chapter 2 as a Python extension, shall port about a couple more exericses later **\[Incomplete\]**) ([chat.c][8-4-i], [chat_setup.py][8-4-ii])
+    * Exercise 8-4: Porting from Python to C (implemented timestamp server and client from Chapter 2 as a Python extension, shall port about a couple more exericses later **\[Incomplete\]**) ([chat.c][8-4-i], [chat_setup.py][8-4-ii])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

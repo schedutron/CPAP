@@ -99,7 +99,7 @@ void client(int port, char *ip)
 	}
 	//Structure to store details
 	struct sockaddr_in server; 
-	memset(&server, '0', sizeof(server)); 
+	memset(&server, 0, sizeof(server)); 
 
 	//Initialize	
 	server.sin_family = AF_INET;

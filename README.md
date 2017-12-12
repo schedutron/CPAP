@@ -114,6 +114,7 @@
     * Exercise 8-4: Porting from Python to C (implemented timestamp server and client from Chapter 2 as a Python extension, shall port about a couple more exericses later **\[Incomplete\]**) ([chat.c][8-4-i], [chat_setup.py][8-4-ii])
     * Exercise 8-5: Wrapping C Code ([helloWorld.c][8-5-i], [hello_setup.py][8-5-ii])
     * Exercise 8-6: Writing Extensions - not done as I haven't read either of the mentioned books
+    * Exercise 8-7: Extending vs. Embedding ([extending_vs_embedding.md][8-7])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -205,3 +206,4 @@
 [8-4-ii]: /Chap8/chat_setup.py
 [8-5-i]: /Chap8/helloWorld.c
 [8-5-ii]: /Chap8/hello_setup.py
+[8-7]: /Chap8/extending_vs_embedding.md

@@ -113,6 +113,7 @@
     * Exercise 8-3: Writing Extensions ([upper.c][8-3-i], [upper_setup.py][8-3-ii])
     * Exercise 8-4: Porting from Python to C (implemented timestamp server and client from Chapter 2 as a Python extension, shall port about a couple more exericses later **\[Incomplete\]**) ([chat.c][8-4-i], [chat_setup.py][8-4-ii])
     * Exercise 8-5: Wrapping C Code ([helloWorld.c][8-5-i], [hello_setup.py][8-5-ii])
+    * Exercise 8-6: Writing Extensions - not done as I haven't read either of the mentioned books
 
 [req2]: /requirements.txt
 [chap4]: /Chap4

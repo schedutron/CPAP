@@ -116,6 +116,11 @@
     * Exercise 8-6: Writing Extensions - not done as I haven't read either of the mentioned books
     * Exercise 8-7: Extending vs. Embedding ([extending_vs_embedding.md][8-7])
     * Exercise 8-8: Not Writing Extensions ([helloworld.pyx][8-8-i], [cy_setup.py][8-8-ii])
+***
+### Web Development
+
+* [Chapter 9: Web Clients and Servers][chap9]
+    * Example 9-1: Basic HTTP Authentication ([urlopen_auth.py][e9-1])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -210,3 +215,6 @@
 [8-7]: /Chap8/extending_vs_embedding.md
 [8-8-i]: /Chap8/helloworld.pyx
 [8-8-ii]: /Chap8/cy_setup.py
+
+[chap9]: /Chap9
+[e9-1]: /Chap9/urlopen_auth.py

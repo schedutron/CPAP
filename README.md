@@ -5,6 +5,7 @@
 ***
 [Library Requirements File (For Python2)][req2]
 ***
+![Lines of code](https://tokei.rs/b1/github/schedutron/CPAP)
 
 * [Chapter 4: Multithreaded Programming][chap4]
     * [Example 4-10: Locks and More Randomness (mtsleepF.py)][e4-10]

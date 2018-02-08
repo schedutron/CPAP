@@ -122,6 +122,17 @@
 
 * [Chapter 9: Web Clients and Servers][chap9]
     * Example 9-1: Basic HTTP Authentication ([urlopen_auth.py][e9-1])
+    * Example 9-2:  Python3 HTTP Authentication Script ([urlopen_auth3.py][e9-2])
+    * Example 9-3: Web Crawler ([crawl.py][e9-3])
+    * Example 9-4: Link Parser ([parse_links.py][e9-4])
+    * Example 9-5: Programmatic Web Browsing ([mech.py][e9-5])
+    * Example 9-6: Simple Web Server ([myhttpd.py][e9-6])
+
+    Exercises coming soon...
+***
+
+* [Chapter 10: Web Programming: CGI and WSGI][chap10]
+    * Example 10-1: Static Form Web Page ([friends.htm][e10-1])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -219,3 +230,11 @@
 
 [chap9]: /Chap9
 [e9-1]: /Chap9/urlopen_auth.py
+[e9-2]: /Chap9/urlopen_auth3.py
+[e9-3]: /Chap9/crawl.py
+[e9-4]: /Chap9/parse_links.py
+[e9-5]: /Chap9/mech.py
+[e9-6]: /Chap9/myhttpd.py
+
+[chap10]: /Chap10
+[e10-1]: /Chap10/friends.htm

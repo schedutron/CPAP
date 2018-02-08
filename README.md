@@ -133,6 +133,7 @@
 
 * [Chapter 10: Web Programming: CGI and WSGI][chap10]
     * Example 10-1: Static Form Web Page ([friends.htm][e10-1])
+    * Example 10-2: Results CGI Screen Code ([friendsA.py][e10-2])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -238,3 +239,4 @@
 
 [chap10]: /Chap10
 [e10-1]: /Chap10/friends.htm
+[e10-2]: /Chap10/cgi-bin/friendsA.py

@@ -135,6 +135,7 @@
     * Example 10-1: Static Form Web Page ([friends.htm][e10-1])
     * Example 10-2: Results CGI Screen Code ([friendsA.py][e10-2])
     * Example 10-3: Generating Form and Results Pages ([friendsB.py][e10-3])
+    * Example 10-4: Full User Interaction and Error Processing ([friendsC.py][e10-4])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -242,3 +243,4 @@
 [e10-1]: /Chap10/friends.htm
 [e10-2]: /Chap10/cgi-bin/friendsA.py
 [e10-3]: /Chap10/cgi-bin/friendsB.py
+[e10-4]: /Chap10/cgi-bin/friendsC.py

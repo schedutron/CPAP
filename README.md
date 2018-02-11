@@ -137,6 +137,7 @@
     * Example 10-3: Generating Form and Results Pages ([friendsB.py][e10-3])
     * Example 10-4: Full User Interaction and Error Processing ([friendsC.py][e10-4])
     * Example 10-5: Python 3 port of friendsC.py ([friendsC3.py][e10-5])
+    * Example 10-6: Simple Unicode CGI Example ([uniCGI.py][e10-6])
 
 [req2]: /requirements.txt
 [chap4]: /Chap4
@@ -246,3 +247,4 @@
 [e10-3]: /Chap10/cgi-bin/friendsB.py
 [e10-4]: /Chap10/cgi-bin/friendsC.py
 [e10-5]: /Chap10/cgi-bin/friendsC3.py
+[e10-6]: /Chap10/cgi-bin/uniCGI.py

@@ -24,7 +24,7 @@ pyparsing==2.2.0
 requests==2.18.2
 service-identity==17.0.0
 six==1.10.0
-Twisted==17.1.0
+Twisted==19.7.0
 urllib3==1.22
 zope.interface==4.4.1
 Pmw

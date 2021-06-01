@@ -25,7 +25,7 @@ requests==2.18.2
 service-identity==17.0.0
 six==1.10.0
 Twisted==17.1.0
-urllib3==1.22
+urllib3==1.26.5
 zope.interface==4.4.1
 Pmw
 wxPython
